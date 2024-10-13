@@ -224,31 +224,22 @@ iframe{
   transform: translateY(-15px);
   box-shadow: 0 12px 16px rgb(0, 0, 0);
 }
-.flex-contenedor-div img{
+.card-contenedor {
+  text-align: center;
+  position: relative;
+}
+.card img{
   max-height: 100%;
   max-width: 100%;
-  
+  }
+.card-contenedor h3{
+  color: #ffffff;
+  align-items: center;
 }
-.flex-contenedor-div .card h3{
-  font-weight: 600;
-  font-size: 30px;
-  height: 1px;
-
-}
-.flex-contenedor-div .card p{
-  padding: 0 1rem;
-  font-size: 20px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 300;
-  padding-top: 30px;
-  text-align: center;
-}
-.flex-contenedor-div .card a{
-  padding-top: 30px;
-  font-size: 22px;
-  font-weight: 500;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
+.precio {
+  font-size: 18px;
+  color: #ffffff;
+  margin-top: 10px; /* Espaciado entre "Comprar" y el precio */
 }
 
 
