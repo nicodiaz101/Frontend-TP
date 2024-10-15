@@ -2,30 +2,36 @@ import styled, { css } from 'styled-components';
 import { useResponsive } from '../../Hooks/useResponsive';
 
 export const Header = styled.header`
-    background-color: #3c3c3c;
+    background-color: #0d3fa9;
     color: #fff;
-    padding: 10px 0;
+    padding: 0.7em 0;
     margin: 0;
 `;
 export const Nav = styled.nav`
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-content: center;
-    place-items: center;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0 1rem;
+
     .logo{
         img{
             width: 100px;
         }
     }
+    .menu-links {
+        display: flex;
+        gap: 1em;
+        justify-content: flex-start;
+    }
     .btn {
         display: none;
         button{
-           background-color : transparent;
-           border: 1px solid #fff;
-           border-radius: 8px;
-           width: 200px;
-           height: 40px;
-           color: #fff;
+            background-color : #ffbf01;
+            border: 0.17em solid #ffffff;
+            border-radius: 0.5em;
+            width: 200px;
+            height: 40px;
+            color: #fff;
         }
     }
     ${useResponsive('lg')}{
@@ -48,7 +54,7 @@ export const Menu = styled.ul`
     display: grid;
     position: absolute;
     left: -250px;
-    background-color: black;
+    background-color: rgba(13,63,169,0.65);
     width: 200px;
     top: -15px;
     gap: 40px;
@@ -78,5 +84,6 @@ export const Menu = styled.ul`
         background-color: transparent;
         flex-direction: row;
         gap: 40px;
+        justify-content: flex-start;
     }
 `;
