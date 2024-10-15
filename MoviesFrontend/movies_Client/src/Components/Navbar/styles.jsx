@@ -36,6 +36,7 @@ export const Nav = styled.nav`
             color: #000000;
         }
     }
+    
     ${useResponsive('lg')}{
         grid-template-columns: 1fr 4fr 1fr;
         .logo{

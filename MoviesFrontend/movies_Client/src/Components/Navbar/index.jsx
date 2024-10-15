@@ -27,7 +27,9 @@ export default function Navbar() {
                     </Menu>
                 </div>
                 <div className="btn">
-                    <button>Iniciar Sesión</button>
+                    <button>
+                            <Link to="/login">Iniciar Sesion</Link>
+                    </button>
                 </div>
                 <div className="icon-menu">
                     {
