@@ -29,13 +29,13 @@
   }
 
 .movie-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.1);
     border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 4px rgb(0, 0, 0);
     overflow: hidden;
     margin: 20px;
     text-align: center;
-    transition: all 0.25s;
+    transition: all 0.55s;
 }
 
 .movie-poster {
