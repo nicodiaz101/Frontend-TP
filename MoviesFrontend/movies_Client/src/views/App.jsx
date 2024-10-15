@@ -7,6 +7,7 @@ import Buscar from './Buscar';
 import Carrito from './Carrito';
 import Register from './Register';
 import Login from './Login';
+import MoviePage from './MoviePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
+          <Route path="/MoviePage" element={<MoviePage/>} />
         </Routes>
     </Router>
   )
