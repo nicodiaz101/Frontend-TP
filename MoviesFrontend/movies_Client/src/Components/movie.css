@@ -5,10 +5,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
     flex-wrap: wrap;
     justify-content: center;
     margin: auto;
+    padding: 5rem;
 }
 .movie-card {
     width: 12em;

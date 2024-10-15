@@ -19,16 +19,14 @@ const MovieList = ( {movies}) => {
 
     return (
         <div className="movie-list">
-            <div>
-                {movies.map((movie) => (
-                    <MovieCard
-                    key={movie.id}
-                    title={movie.title}
-                    price={movie.price}
-                    poster={movie.poster}
-                    />
-                ))}
-            </div>
+            {movies.map((movie) => (
+                <MovieCard
+                key={movie.id}
+                title={movie.title}
+                price={movie.price}
+                poster={movie.poster}
+                />
+            ))}
         </div>
     );
 };
