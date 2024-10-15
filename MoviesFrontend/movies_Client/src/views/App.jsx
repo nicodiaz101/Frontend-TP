@@ -1,41 +1,16 @@
+import React from 'react'
 import { useState } from 'react'
 import './App.css'
-import Navbar from '../Components/Navbar'
-import MovieList from '../Components/MovieList'
-import Footer from '../Components/Footer'
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './Home'
 
 function App() {
-  const movies = [ // Ejemplo de movies que se pueden agregar
-    {
-      id: 1,
-      title: "El Padrino",
-      poster: "src/img/elPadrino.jpg",
-      description: "A great movie",
-      price: 1999
-    },
-    {
-      id: 2,
-      title: "Titanic",
-      poster: "src/img/TITANIC.jpg",
-      description: "Another great movie",
-      price: 2499
-    },
-    {
-      id: 3,
-      title: "Interstellar",
-      poster: "src/img/interstellar.jpg",
-      description: "Another great movie!!",
-      price: 2199
-    }
-  ];
-
   return (
-    <>
-      <Navbar></Navbar>
-      <MovieList movies={movies}></MovieList>
-      
-    </>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+    </Router>
   )
 }
 
