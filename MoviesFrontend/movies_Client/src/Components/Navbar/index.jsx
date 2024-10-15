@@ -14,8 +14,8 @@ export default function Navbar() {
                 </div>
                 <div className="menu-links">
                     <Menu open={open}>
-                        <li><a href="">Inicio</a></li>
                         <li><a href="#">Buscar</a></li>
+                        
                         <li><a href="#"><FaShoppingCart /></a></li>
                     </Menu>
                 </div>

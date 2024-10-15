@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { useResponsive } from '../../Hooks/useResponsive';
 
 export const Header = styled.header`
-    background-color: #0d3fa9;
+    background-color: #2a2a2a;
     color: #fff;
     padding: 0.7em 0;
     margin: 0;
@@ -21,17 +21,19 @@ export const Nav = styled.nav`
     .menu-links {
         display: flex;
         gap: 1em;
-        justify-content: flex-start;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    
     .btn {
         display: none;
         button{
-            background-color : #ffbf01;
-            border: 0.17em solid #ffffff;
-            border-radius: 0.5em;
+            background-color : #4acbf3;
+            border: 0.17em solid #ffffff47;
+            border-radius: 2em;
             width: 200px;
             height: 40px;
-            color: #fff;
+            color: #000000;
         }
     }
     ${useResponsive('lg')}{

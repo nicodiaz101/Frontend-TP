@@ -19,7 +19,6 @@ const MovieList = ( {movies}) => {
 
     return (
         <div className="movie-list">
-            <h1>Movies</h1>
             <div>
                 {movies.map((movie) => (
                     <MovieCard
