@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import Navbar from '../components/Navbar'
-import MovieList from '../components/MovieList'
+import Navbar from '../Components/Navbar'
+import MovieList from '../Components/MovieList'
+import Footer from '../Components/Footer'
+
 
 function App() {
   const movies = [ // Ejemplo de movies que se pueden agregar
@@ -32,6 +34,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <MovieList movies={movies}></MovieList>
+      
     </>
   )
 }
