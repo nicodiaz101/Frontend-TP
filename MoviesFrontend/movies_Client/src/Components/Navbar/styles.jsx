@@ -30,7 +30,7 @@ export const Nav = styled.nav`
         button{
             background-color : #4acbf3;
             border: 0.17em solid #ffffff47;
-            border-radius: 2em;
+            border-radius: 1.3em;
             width: 200px;
             height: 40px;
             color: #000000;
@@ -56,7 +56,7 @@ export const Menu = styled.ul`
     display: grid;
     position: absolute;
     left: -250px;
-    background-color: rgba(13,63,169,0.65);
+    background-color: rgba(82, 84, 90, 0.65);
     width: 200px;
     top: -15px;
     gap: 40px;

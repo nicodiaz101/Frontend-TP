@@ -9,7 +9,7 @@ const MovieCard = ({title, price, poster}) => {
                 </div>
                 <div className="movie-info">
                     <h2>{title}</h2>
-                    <p>{price}$</p>
+                    <b>$ {price}</b>
                 </div>
             </div>
         </>

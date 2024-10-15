@@ -19,6 +19,13 @@ function App() {
       description: "Another great movie",
       price: 2499
     },
+    {
+      id: 3,
+      title: "Interstellar",
+      poster: "src/img/interstellar.jpg",
+      description: "Another great movie!!",
+      price: 2199
+    }
   ];
 
   return (
