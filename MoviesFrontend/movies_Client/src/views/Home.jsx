@@ -6,6 +6,7 @@ const Home = () => {
         {
             id: 1,
             title: "El Padrino",
+            genre: "Drama",
             poster: "src/img/elPadrino.jpg",
             description: "A great movie",
             price: 1999
@@ -13,6 +14,7 @@ const Home = () => {
         {
             id: 2,
             title: "Titanic",
+            genre: "Drama",
             poster: "src/img/TITANIC.jpg",
             description: "Another great movie",
             price: 2499
@@ -20,6 +22,7 @@ const Home = () => {
         {
             id: 3,
             title: "Interstellar",
+            genre: "Sci-fi",
             poster: "src/img/interstellar.jpg",
             description: "Another great movie!!",
             price: 2199

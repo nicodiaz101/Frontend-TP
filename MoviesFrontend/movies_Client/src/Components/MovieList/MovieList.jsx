@@ -23,6 +23,7 @@ const MovieList = ( {movies}) => {
                 <MovieCard
                 key={movie.id}
                 title={movie.title}
+                genre={movie.genre}
                 price={movie.price}
                 poster={movie.poster}
                 />

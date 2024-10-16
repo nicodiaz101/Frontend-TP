@@ -1,6 +1,6 @@
 import './movie.css';
 import { Link } from "react-router-dom";
-const MovieCard = ({title, price, poster}) => {
+const MovieCard = ({title, genre, price, poster}) => {
     return (
         <>
             <div className="contenedor-flex">
@@ -11,6 +11,7 @@ const MovieCard = ({title, price, poster}) => {
                 </div>
                 <div className="movie-info">
                     <h2>{title}</h2>
+                    <p>{genre}</p>
                     <b>$ {price}</b>
                 </div>
             </div>

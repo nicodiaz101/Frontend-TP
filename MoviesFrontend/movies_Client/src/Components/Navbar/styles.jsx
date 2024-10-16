@@ -47,6 +47,7 @@ export const Nav = styled.nav`
             text-decoration: none;
             transition: background-color 0.3s ease;
             font-size: 1.15em;
+            cursor: pointer;
         }
         button:hover {
             background-color: #0396c7;

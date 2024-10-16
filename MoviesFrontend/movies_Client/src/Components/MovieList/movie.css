@@ -43,7 +43,20 @@
     max-width: 100%;
 }
 
+.movie-info h2 {
+  font-size: 1.6em;
+  margin-top: 0.6em;
+  margin-bottom: 0.08em;
+}
+
+.movie-info p {
+  color: #aaaaaa;
+  font-size: 1.02em;
+  margin-bottom: 0.9em;
+  margin-top: 0;
+}
 .movie-info b{
+    font-size: 1.2em;
     color: #06751e;
 }
 
