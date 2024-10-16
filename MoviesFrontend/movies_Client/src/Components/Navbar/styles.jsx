@@ -15,7 +15,7 @@ export const Nav = styled.nav`
 
     .logo{
         img{
-            width: 100px;
+            width: 127px;
         }
     }
     .menu-links {
@@ -23,18 +23,38 @@ export const Nav = styled.nav`
         gap: 1em;
         justify-content: center;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: color 0.3s ease;
+        font-size: 1.15em;
     }
-    
+    .menu-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .menu-links a:hover{
+        color: #0396c7;
+    }
+
     .btn {
         display: none;
         button{
             background-color : #4acbf3;
             border: 0.17em solid #ffffff47;
-            border-radius: 1.3em;
+            border-radius: 1.1em;
             width: 200px;
-            height: 40px;
+            height: 45px;
             color: #000000;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1.15em;
         }
+        button:hover {
+            background-color: #0396c7;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        } 
     }
     
     ${useResponsive('lg')}{
@@ -51,7 +71,6 @@ export const Nav = styled.nav`
             display: none;
         }
     }
-
 `;
 export const Menu = styled.ul`
     display: grid;
