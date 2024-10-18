@@ -8,9 +8,10 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.register-container{
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: whitesmoke;
 }

@@ -1,12 +1,16 @@
 import Navbar from "../components/Navbar";
+import Login from "../components/Login-Register/Login";
+import "./register-loginPage.css";
 
 const LoginPage = () => {
     return (
         <>
             <Navbar></Navbar>
-            <h1>Iniciar Sesión</h1>
+            <div className="container">
+                <Login></Login>
+            </div>
         </>
-    );
+    )
 }
 
 export default LoginPage;
