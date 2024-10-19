@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
-const MovieList = ( {movies}) => {
-    // PARA EL BACKEND
+const MovieList = () => {
+    const [movies, setMovies] = useState({ content: [] });
 
-    //const [movies, setMovies] = useState([]);
-
-    //useEffect(()=>{
-    //    fetch('localhost:8080/movies') //localhost:8080/products API backend
-    //    .then((response) => response.json())
-    //    .then((data) => {
-    //        setMovies(data) //Actualizamos el estado con los datos obtenidos
-   //     })
-    //    .catch((error) => {
-    //        console.error('Error al obtener los datos:', error)
-    //    })
-    //}, [])
+    useEffect(()=>{
+        fetch('http://localhost:4002/movies/available') //localhost:8080/products API backend
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Datos obtenidos:', data)
+            setMovies(data) //Actualizamos el estado con los datos obtenidos
+        })
+        .catch((error) => {
+            console.error('Error al obtener los datos:', error)
+        })
+    }, [])
 
     return (
         <div className="movie-list">
-            {movies.map((movie) => (
+            {movies.content.map((movie) => (
                 <MovieCard
-                key={movie.id}
+                key={movie.movieId}
                 title={movie.title}
-                genre={movie.genre}
+                genre={movie.genre.name}
                 price={movie.price}
                 poster={movie.poster}
                 />
