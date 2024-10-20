@@ -11,6 +11,7 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState(""); // Estado para el mensaje de error
     const role = "USER";  // Role default para un nuevo usuario
 
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Register = () => {
         e.preventDefault();
         
         if(password !== confirmPassword) {
-            alert("Las contraseñas no coinciden");
+            setError("Las contraseñas no coinciden");
             return;
         }
 
@@ -46,10 +47,11 @@ const Register = () => {
                 alert("Registro exitoso, ahora puede iniciar sesión");
                 navigate("/login"); // Lleva al usuario a la página de login
             } else {
-                alert("Error al registrar. Intente de nuevo."); // Mensaje de error
+                setError("Error al registrar. Intente de nuevo."); // Mensaje de error
             }
         } catch (error) {
             console.error("Error:", error);
+            setError("Error al registrar. Intente de nuevo.");
         }
     };
 
@@ -64,6 +66,7 @@ const Register = () => {
                 <input type="text" placeholder="Nombre de Usuario" onChange={(e) => setUsername(e.target.value)} />
                 <input type="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} />
                 <input type="password" placeholder="Confirmar Contraseña" onChange={(e) => setConfirmPassword(e.target.value)} />
+                {error && <p className="error">{error}</p>} {/* Muestra el mensaje de error */}
                 <button type="submit">Registrar</button>
             </form>
             <p>Ya tiene cuenta?<Link to="/login"> Inicie Sesión</Link></p>
