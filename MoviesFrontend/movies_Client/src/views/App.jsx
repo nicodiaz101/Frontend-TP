@@ -8,6 +8,7 @@ import Carrito from './Carrito';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import MoviePage from './MoviePage';
+import AdminPage from './AdminPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/MoviePage" element={<MoviePage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
+          <Route path="/adminPage" element={<AdminPage/>} />
         </Routes>
     </Router>
   )
