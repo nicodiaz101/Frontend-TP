@@ -9,6 +9,9 @@ import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import MoviePage from './MoviePage';
 import AdminPage from './AdminPage';
+import PrivacyPolitics from './privacyPolitics';
+import Terminos from './terms';
+import Cambios from './cambios';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/adminPage" element={<AdminPage/>} />
+          <Route path="/privacyPolitics" element={<PrivacyPolitics/>} />
+          <Route path="/terms" element={<Terminos/>} />
+          <Route path="/cambios" element={<Cambios/>} />
         </Routes>
     </Router>
   )
