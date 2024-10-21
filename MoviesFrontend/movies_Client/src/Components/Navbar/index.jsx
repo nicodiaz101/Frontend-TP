@@ -23,7 +23,7 @@ export default function Navbar() {
         localStorage.removeItem("token"); // Remueve el token
         localStorage.removeItem("user"); // Remueve datos del usuario
         setLoggedIn(false); // Actualiza el estado
-        navigate("/"); // Redirige al login
+        navigate("/login"); // Redirige al login
     };
 
     return (
