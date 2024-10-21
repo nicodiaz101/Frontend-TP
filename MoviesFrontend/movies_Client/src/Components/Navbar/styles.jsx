@@ -64,13 +64,15 @@ export const Nav = styled.nav`
 
     .btn-admin{
         button{
-            background-color : #4a9ff3;
-            border: 0.17em solid #ffffff47;
+            background-image: linear-gradient(to right, #fdfdfd 0%, #cb6dfa 30%, #0608a5 100%);
+            background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
+            background-position: left center; /* Posición inicial */
+            border: 0.17em transparent;
             width: 150px;
             height: 29px;
             color: #000000;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
             font-size: 0.72em;
             cursor: pointer;
             margin-left: 1.5rem;
