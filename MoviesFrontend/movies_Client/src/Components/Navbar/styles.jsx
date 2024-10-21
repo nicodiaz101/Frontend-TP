@@ -2,11 +2,15 @@ import styled, { css } from 'styled-components';
 import { useResponsive } from '../../Hooks/useResponsive';
 
 export const Header = styled.header`
-    background: rgb(0,20,73);
     background: radial-gradient(circle, rgba(0,20,73,1) 4%, rgba(0,0,0,1) 100%);
     color: #212020;
     padding: 0.7em 0;
     margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
 `;
 export const Nav = styled.nav`
     display: grid;
