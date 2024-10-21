@@ -54,4 +54,8 @@
         font-size: 0.8rem;
         color: #ffffff;
     }
+    .error {
+        color: red;
+        margin-top: 10px;
+    }
 }
