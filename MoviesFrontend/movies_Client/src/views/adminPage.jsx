@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import PrivateRoute from "../components/PrivateRoute";
 import { Link } from "react-router-dom";
 import "./adminPage.css";
+import Footer from '../components/Footer'
 
 const AdminPage = () => {
     return (
@@ -23,6 +24,7 @@ const AdminPage = () => {
                     </Link>
                 </div>
             </div>
+            <Footer></Footer>
         </PrivateRoute>
     );
 }

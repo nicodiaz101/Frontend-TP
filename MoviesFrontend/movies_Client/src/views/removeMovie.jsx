@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import PrivateRoute from "../components/PrivateRoute";
+import Footer from '../components/Footer'
 
 const RemoveMovie = () => {
     return (
@@ -8,6 +9,7 @@ const RemoveMovie = () => {
             <div className="rmMovie">
                 <RemoveMovie></RemoveMovie>
             </div>
+            <Footer></Footer>
         </PrivateRoute>
     );
 }

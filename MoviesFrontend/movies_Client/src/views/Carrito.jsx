@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from '../components/Footer'
 
 
 const Carrito = () => {
@@ -8,6 +9,8 @@ const Carrito = () => {
             <h1>Tu carrito</h1>
             <h1>Tu carrito</h1>
             <h1>Tu carrito</h1>
+            <Footer></Footer>
+
         </>
     )
 }

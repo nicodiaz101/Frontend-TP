@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { Footer_Nav } from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
 
@@ -18,9 +19,9 @@ export default function Footer() {
                 </li>
             </div>
             <div className="legal">
-                <li><a href="">Politica de Privacidad</a></li>
-                <li><a href="">Terminos y Condiciones</a></li>
-                <li><a href="">Cambios y devoluciones</a></li>
+                <li> <Link to="/privacyPolitics">Politica de Privacidad</Link></li>
+                <li><Link to="/terms">Terminos y Condiciones</Link></li>
+                <li><Link to="/cambios">Cambios y devoluciones</Link></li>
             </div>
         </Footer_Nav>
     )
