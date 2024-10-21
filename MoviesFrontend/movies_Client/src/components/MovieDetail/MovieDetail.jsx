@@ -37,6 +37,7 @@ const MovieDetail = () => {
                     </div>    
                 </div>
                 <div className='contenedor-chico'>
+                    
                     <p>{movie.description}</p>
                 </div>
             </div></>
