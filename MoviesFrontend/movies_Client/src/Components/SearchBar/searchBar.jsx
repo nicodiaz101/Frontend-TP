@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MovieCard from "../MovieCard/MovieCard";
+import MovieCard from "../MovieList/MovieCard";
 import "./searchBar.css";
 
 const SearchBar = () => {
