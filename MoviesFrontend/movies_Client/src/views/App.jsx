@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Home'
@@ -20,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/carrito" element={<Carrito />} />
-          <Route path="/MoviePage" element={<MoviePage/>} />
+          <Route path="/moviePage" element={<MoviePage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/adminPage" element={<AdminPage/>} />
