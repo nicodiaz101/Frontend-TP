@@ -72,14 +72,14 @@ export const Nav = styled.nav`
             background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
             background-position: left center; /* Posición inicial */
             border: 0.17em transparent;
-            width: 150px;
-            height: 29px;
+            width: 170px;
+            height: 35px;
             color: #000000;
             text-decoration: none;
             transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
             font-size: 0.72em;
             cursor: pointer;
-            margin-left: 1.5rem;
+            margin-left: 1rem;
             margin-top: 0.61rem;
         }
         button:hover {

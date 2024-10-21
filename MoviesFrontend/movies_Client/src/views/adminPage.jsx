@@ -7,19 +7,21 @@ const AdminPage = () => {
     return (
         <PrivateRoute requiredRole="ADMIN">
             <Navbar></Navbar>
-            <h1>Admin Page!</h1>
-            <p>Elige una de las opciones</p>
-            <div className="buttons">
-                <Link to="/newMovie">
-                    <button>
-                        Agregar pelicula al cátalogo
-                    </button>
-                </Link>
-                <Link to="/removeMovie">
-                    <button>
-                        Eliminar pelicula del cátalogo
-                    </button>
-                </Link>
+            <div className="adminPage">
+                <h1>Admin Page!</h1>
+                <p>Elige una de las opciones</p>
+                <div className="buttons">
+                    <Link to="/newMovie">
+                        <button>
+                            Agregar pelicula al cátalogo
+                        </button>
+                    </Link>
+                    <Link to="/removeMovie">
+                        <button>
+                            Eliminar pelicula del cátalogo
+                        </button>
+                    </Link>
+                </div>
             </div>
         </PrivateRoute>
     );

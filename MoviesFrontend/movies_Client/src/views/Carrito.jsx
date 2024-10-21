@@ -6,6 +6,8 @@ const Carrito = () => {
         <>
             <Navbar></Navbar>
             <h1>Tu carrito</h1>
+            <h1>Tu carrito</h1>
+            <h1>Tu carrito</h1>
         </>
     )
 }

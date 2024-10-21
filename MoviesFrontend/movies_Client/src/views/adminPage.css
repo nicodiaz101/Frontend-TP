@@ -6,30 +6,37 @@ p{
     text-align: center;
     margin-top: 20px;
 }
-.buttons{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-button{
-    background-image: linear-gradient(to right, #fdfdfd 0%, #cb6dfa 30%, #0608a5 100%);
-    background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
-    background-position: left center; /* Posición inicial */
-    border: 0.17em transparent;
-    border-radius: 1.1em;
-    width: 200px;
-    height: 45px;
-    color: #000000; /* Color inicial del texto */
-    text-decoration: none;
-    font-size: 1.15em;
-    cursor: pointer;
-    transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
-}
-button:hover {
-    background-position: right center;
-    color: #ffffff;
-}
 
-button:active {
-    transform: scale(0.95);
+.adminPage{
+    
+    .buttons{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    button{
+        background-image: linear-gradient(to right, #26a9e18e 0%, #cb6dfa 30%, #0608a5 100%);
+        background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
+        background-position: left center; /* Posición inicial */
+        border: 0.17em transparent;
+        border-radius: 1.1em;
+        width: 500px;
+        height: 250px;
+        color: #000000; /* Color inicial del texto */
+        text-decoration: none;
+        font-size: 1.15em;
+        margin-right: 5em;
+        margin-left: 5em;
+        margin-top: 10em;
+        cursor: pointer;
+        transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
+    }
+    button:hover {
+        background-position: right center;
+        color: #ffffff;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
 }
