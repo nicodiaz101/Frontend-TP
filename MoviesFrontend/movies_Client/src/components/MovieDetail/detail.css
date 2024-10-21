@@ -1,3 +1,19 @@
+
+
+.movie-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: left center;
+    filter: blur(20px); /* Desenfoque de la imagen */
+    z-index: -1; /* La imagen de fondo queda detrás del contenido */
+}
+
+
+
 .contenedor-general{
     padding-top: 70px;
     display: flex;
@@ -12,17 +28,27 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: rgb(252, 236, 227);
+    border-color: black;
+    
 }
 .contenedor-medio img{
     width: 300px;
 }
-.contenedor-medio h1{
+.contenedor-medio-textos{
+    padding-bottom: 40px;
+    padding-left: 20px;
+    text-align: left;
+}
+.contenedor-medio-textos h1{
     font-size: 1.6em;
-    margin-top: 0.6em;
 }
-.contenedor-medio p{
+
+.contenedor-medio-textos p{
     color: black;
+    padding-bottom: 5px;
 }
+
 
 
 
@@ -30,9 +56,10 @@
     display: flex;
 }
 .contenedor-chico p{
-    background-color: rgb(95, 95, 95);
+    background-color: rgba(95, 95, 95, 0.482);
     border-radius: 5%;
     color: rgb(255, 255, 255);
+    font-size: 30px;
     text-align: left;
     padding: 70px;
 }

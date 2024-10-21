@@ -1,6 +1,6 @@
 
 .r-container{
-    background-color: #4acbf3;
+    background-color: #001c63;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -11,7 +11,7 @@
 
     .title{
         font-size: 2rem;
-        color: #053348;
+        color: #ffffff;
         font-weight: bold;
         margin-bottom: 1em;
     }
@@ -19,6 +19,7 @@
     form{
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 20px;
 
         input{
@@ -26,7 +27,7 @@
             outline: none;
             padding: 0.8rem;
             border-bottom: 1px solid #465d68;
-            background-color: #fafafa;
+            background-color: #ffffff;
             border-radius: 0.9em;
 
             &::placeholder{
@@ -38,15 +39,15 @@
             border: none;
             background-color: #053348;
             font-weight: 400;
-            color: white;
+            color: rgb(0, 0, 0);
             cursor: pointer;
             font-size: 1rem;
             border-radius: 0.8rem;
 
             &:hover{
                 background-color: #074b6a;
-                color: #a1b3bc;
-                animation: 5s ease-in linear infinite;
+                color: #ffffff;
+                animation: 3s ease-in linear infinite;
             }
         }
     }
