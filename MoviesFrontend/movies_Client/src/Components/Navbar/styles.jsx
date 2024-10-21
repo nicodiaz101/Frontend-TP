@@ -2,8 +2,9 @@ import styled, { css } from 'styled-components';
 import { useResponsive } from '../../Hooks/useResponsive';
 
 export const Header = styled.header`
-    background-color: #2a2a2a;
-    color: #fff;
+    background: rgb(0,20,73);
+    background: radial-gradient(circle, rgba(0,20,73,1) 4%, rgba(0,0,0,1) 100%);
+    color: #212020;
     padding: 0.7em 0;
     margin: 0;
 `;
@@ -38,19 +39,22 @@ export const Nav = styled.nav`
     .btn {
         display: none;
         button{
-            background-color : #4acbf3;
-            border: 0.17em solid #ffffff47;
+            background-image: linear-gradient(to right, #fdfdfd 0%, #cb6dfa 30%, #0608a5 100%);
+            background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
+            background-position: left center; /* Posición inicial */
+            border: 0.17em transparent;
             border-radius: 1.1em;
             width: 200px;
             height: 45px;
-            color: #000000;
+            color: #000000; /* Color inicial del texto */
             text-decoration: none;
-            transition: background-color 0.3s ease;
             font-size: 1.15em;
             cursor: pointer;
+            transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
         }
         button:hover {
-            background-color: #0396c7;
+            background-position: right center;
+            color: #ffffff;
         }
 
         button:active {
