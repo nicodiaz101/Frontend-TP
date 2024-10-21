@@ -1,3 +1,4 @@
+import CreateMovie from "../Components/createMovie/createMovie";
 import Navbar from "../components/Navbar";
 import PrivateRoute from "../components/PrivateRoute";
 
@@ -5,10 +6,9 @@ const NewMovie = () => {
     return (
         <PrivateRoute requiredRole="ADMIN">
             <Navbar></Navbar>
-            <h1>Agregar pelicula al catálogo</h1>
-            <p>Introduce los datos de la nueva película</p>
-            
-            <button>Crear pelicula</button>
+            <div className="newMovieForm">
+                <CreateMovie></CreateMovie>
+            </div>
         </PrivateRoute>
     );
 }
