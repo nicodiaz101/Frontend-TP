@@ -15,7 +15,7 @@ export const Nav = styled.nav`
 
     .logo{
         img{
-            width: 127px;
+            width: 137px;
         }
     }
     .menu-links {
@@ -55,7 +55,26 @@ export const Nav = styled.nav`
 
         button:active {
             transform: scale(0.95);
-        } 
+        }
+    }
+
+    .btn-admin{
+        button{
+            background-color : #4a9ff3;
+            border: 0.17em solid #ffffff47;
+            width: 150px;
+            height: 29px;
+            color: #000000;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.72em;
+            cursor: pointer;
+            margin-left: 1.5rem;
+            margin-top: 0.61rem;
+        }
+        button:hover {
+            background-color: #03b3c7;
+        }
     }
     
     ${useResponsive('lg')}{

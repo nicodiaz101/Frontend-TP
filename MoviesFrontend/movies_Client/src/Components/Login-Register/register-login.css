@@ -27,6 +27,7 @@
             padding: 0.8rem;
             border-bottom: 1px solid #465d68;
             background-color: #fafafa;
+            border-radius: 0.9em;
 
             &::placeholder{
                 color: #465d68;
@@ -51,11 +52,12 @@
     }
     p{
         margin-top: 1rem;
-        font-size: 0.8rem;
+        font-size: 0.95rem;
         color: #ffffff;
     }
     .error {
         color: red;
         margin-top: 10px;
+        font-size: 1.05em;
     }
 }

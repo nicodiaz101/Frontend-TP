@@ -15,12 +15,16 @@ export default function Navbar() {
         const user = JSON.parse(localStorage.getItem("user"));
         if (user) {
             setLoggedIn(true); // Si hay un usuario, se marca como logueado
+            console.log('Token:', localStorage.getItem("token"));
+            console.log("Role:", localStorage.getItem("userRole"));
+            console.log('Usuario logeado:', localStorage.getItem("user"));
         }
     }, []);
 
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remueve el token
+        localStorage.removeItem("userRole"); // Remueve datos del usuario
         localStorage.removeItem("user"); // Remueve datos del usuario
         setLoggedIn(false); // Actualiza el estado
         navigate("/login"); // Redirige al login
@@ -57,6 +61,15 @@ export default function Navbar() {
                             </button>
                         </Link>
                     )}
+                <div className="btn-admin">
+                    {loggedIn && localStorage.getItem("userRole") == "ADMIN" ? (
+                    <Link to="/adminPage">
+                        <button>
+                            Pantalla de Administrador
+                        </button>
+                    </Link>
+                    ) : null}
+                </div>
                 </div>
                 <div className="icon-menu">
                     {
