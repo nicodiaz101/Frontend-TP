@@ -1,0 +1,38 @@
+.contenedor-general{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 100px;
+}
+
+
+.contenedor-medio{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.contenedor-medio img{
+    width: 300px;
+}
+.contenedor-medio h1{
+    font-size: 1.6em;
+    margin-top: 0.6em;
+}
+.contenedor-medio p{
+    color: black;
+}
+
+
+
+.contenedor-chico{
+    display: flex;
+}
+.contenedor-chico p{
+    background-color: rgb(95, 95, 95);
+    border-radius: 5%;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 70px;
+}

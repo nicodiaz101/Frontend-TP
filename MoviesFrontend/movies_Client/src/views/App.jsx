@@ -6,6 +6,7 @@ import Buscar from './Buscar';
 import Carrito from './Carrito';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
+import MovieList from "../components/MovieList/MovieList.jsx";
 import MoviePage from './MoviePage';
 import AdminPage from './AdminPage';
 import PrivacyPolitics from './privacyPolitics';
@@ -21,7 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/carrito" element={<Carrito />} />
-          <Route path="/moviePage" element={<MoviePage/>} />
+          <Route path="/movies" element={<MovieList />} />
+          <Route path="/movies/:movieId" element={<MoviePage />} /> {/* Ruta dinámica con movieId */}
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/adminPage" element={<AdminPage/>} />

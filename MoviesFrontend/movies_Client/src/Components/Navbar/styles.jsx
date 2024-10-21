@@ -39,7 +39,6 @@ export const Nav = styled.nav`
     .menu-links a:hover{
         color: #0396c7;
     }
-
     .btn {
         display: none;
         button{
@@ -51,6 +50,7 @@ export const Nav = styled.nav`
             width: 200px;
             height: 45px;
             color: #000000; /* Color inicial del texto */
+            
             text-decoration: none;
             font-size: 1.15em;
             cursor: pointer;

@@ -21,6 +21,7 @@ const MovieList = () => {
             {movies.content.map((movie) => (
                 <MovieCard
                 key={movie.movieId}
+                movieId={movie.movieId} // Pasamos el movieId al MovieCard
                 title={movie.title}
                 genre={movie.genre.name}
                 price={movie.price}

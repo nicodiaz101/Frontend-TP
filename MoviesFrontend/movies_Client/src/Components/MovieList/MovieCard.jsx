@@ -1,11 +1,11 @@
 import './movie.css';
 import { Link } from "react-router-dom";
-const MovieCard = ({title, genre, price, poster}) => {
+const MovieCard = ({movieId,title, genre, price, poster}) => {
     return (
         <>
             <div className="contenedor-flex">
                 <div className="movie-card">
-                    <Link to="/MoviePage">
+                    <Link to={`/movies/${movieId}`}>
                         <img src={poster} alt={title} className="movie-poster" />
                     </Link>
                 </div>

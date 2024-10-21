@@ -1,11 +1,11 @@
-import MovieDetail from '../components/MovieDetail/MovieDetail';
-import Navbar from '../components/Navbar'
+import MovieDetail from '../components/MovieDetail/MovieDetail.jsx';
+import Navbar from "../components/Navbar";
 
 const MoviePage = () => {
     return (
         <>
             <Navbar></Navbar>
-            
+            <MovieDetail></MovieDetail>
         </>
     )
 }
