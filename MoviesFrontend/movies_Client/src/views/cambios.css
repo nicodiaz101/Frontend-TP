@@ -1,0 +1,17 @@
+.cContainer{
+    margin-top: 150px;
+    display: grid;
+    padding: 5rem;
+}
+h1{
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.pCambios{
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
