@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <Footer_Nav>
             <div className="logo">
-                <img src="./src/Img/cinelogo.png" alt="" />
+                <Link to="/"><img src="./src/Img/cinelogo.png" alt="logo" /></Link>
             </div>
             <div className="links">
                 <li>
