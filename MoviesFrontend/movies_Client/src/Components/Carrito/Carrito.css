@@ -68,3 +68,54 @@
     cursor: pointer;
     border-radius: 4px;
 }
+
+.order-confirmation {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+
+    .precio p{
+        color: #4CAF50;
+    }
+}
+
+.order-confirmation h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.order-confirmation p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555555;
+}
+
+.order-confirmation .order-summary {
+    margin-top: 15px;
+}
+
+.order-confirmation .total-price {
+    font-weight: bold;
+    font-size: 20px;
+    color: #FF5722;
+}
+
+.order-confirmation button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.order-confirmation button:hover {
+    background-color: #45a049;
+}

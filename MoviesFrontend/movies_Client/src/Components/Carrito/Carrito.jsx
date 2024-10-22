@@ -3,10 +3,30 @@ import './Carrito.css';
 
 const Carrito = () => {
     const [cart, setCart] = useState([]);
+    const [userEmail, setUserEmail] = useState('');
+    const [orderConfirmation, setOrderConfirmation] = useState(null);
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('es-ES', {
+            weekday: 'long',  // Lunes, Martes...
+            year: 'numeric',  // Año completo
+            month: 'long',    // Mes completo (Enero, Febrero...)
+            day: 'numeric',   // Día del mes
+            hour: '2-digit',  // Hora con dos dígitos
+            minute: '2-digit' // Minutos con dos dígitos
+        });
+    };
+
+    // Obtener carrito de localStorage
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(savedCart);
+        // Obtener el email directamente del localStorage
+        const email = localStorage.getItem('email');
+        if (email) {
+            setUserEmail(email); // Guardar email en el estado
+        }
     }, []);
 
     const removeFromCart = (movieId) => {
@@ -28,10 +48,36 @@ const Carrito = () => {
         if (!token) {
             window.location.href = "/login"; // Redirige a login si no está loggeado
         } else {
-            // LOGICA PARA PROCESAR LA COMPRA A IMPLEMENTAR
-            alert("Compra procesada!");
+            // Crear lista de títulos de películas
+            const movieTitles = cart.map(item => item.title);
+
+            // Preparar la solicitud de compra
+            const orderRequest = {
+                user: { email: userEmail },
+                movies: movieTitles,
+            };
+
+            // Enviar solicitud de compra al backend
+            fetch('http://localhost:4002/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Si necesitas token para la autenticación
+                },
+                body: JSON.stringify(orderRequest),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Orden creada:', data);
+                    setOrderConfirmation(data); // Mostrar la orden creada
+                    // Limpiar carrito tras la compra
+                    setCart([]);
+                    localStorage.removeItem('cart');
+                })
+                .catch(error => alert('Error al procesar la compra:', error));
         }
     };
+
 
     return (
         <>
@@ -58,6 +104,17 @@ const Carrito = () => {
                         ))}
                         <button className="checkout-btn" onClick={handleCheckout}>Realizar compra</button>
                     </>
+                )}
+                {/* Mostrar detalles de la orden tras el checkout */}
+                {orderConfirmation && (
+                    <div className="order-confirmation">
+                        <h2>¡Compra realizada con éxito!</h2>
+                        <p>Orden ID: {orderConfirmation.orderId}</p>
+                        <p>Fecha: {formatDate(orderConfirmation.orderDate)}</p>
+                        <div className="precio">
+                            <p>Total: ${orderConfirmation.amount}</p>
+                        </div>
+                    </div>
                 )}
             </div>
         </>

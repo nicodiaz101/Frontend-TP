@@ -5,7 +5,7 @@ const MovieList = () => {
     const [movies, setMovies] = useState({ content: [] });
 
     useEffect(()=>{
-        fetch('http://localhost:4002/movies/available') //localhost:8080/products API backend
+        fetch('http://localhost:4002/movies/available')
         .then((response) => response.json())
         .then((data) => {
             console.log('Datos obtenidos:', data)

@@ -32,7 +32,7 @@ const Login = () => {
                 localStorage.setItem("token", data.token); // Guardar el JWT en el localStorage para mantener la sesión activa
                 localStorage.setItem("userRole", data.role); // Guardar el rol del usuario
                 localStorage.setItem("userId", data.userId); // Guardar el id del usuario
-                localStorage.setItem("user", JSON.stringify(credentials)); // Guardar los datos del usuario en localStorage
+                localStorage.setItem("email", data.email); // Guardar el email del usuario
                 alert("Inicio de sesión exitoso");
                 navigate("/"); // Redirigir al home
             } else {
