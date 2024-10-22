@@ -19,6 +19,23 @@ const MovieDetail = () => {
             });
     }, [movieId]); // El efecto se ejecuta cada vez que el movieId cambia
 
+    const addToCart = (movie) => {  // Función para agregar la película al carrito
+        const savedCart = JSON.parse(localStorage.getItem('cart')) || []; // Obtén el carrito del localStorage o crea uno vacío
+        const existingMovie = savedCart.find(item => item.movieId === movie.movieId); // Busca si la película ya está en el carrito
+
+        if (existingMovie) {
+            // Si ya está en el carrito, aumenta la cantidad
+            existingMovie.quantity += 1;
+        } else {
+            // Si no está en el carrito, agrégala con cantidad 1
+            savedCart.push({ ...movie, quantity: 1 });
+        }
+
+        // Guarda el carrito actualizado en localStorage
+        localStorage.setItem('cart', JSON.stringify(savedCart));
+        alert(`${movie.title} se ha agregado al carrito!`);
+    };
+
     if (!movie) {
         return <p>Cargando detalles de la película...</p>; // Mensaje mientras se cargan los datos
     }
@@ -39,7 +56,7 @@ const MovieDetail = () => {
                 <div className='contenedor-chico'>
                     <p>{movie.description}</p>
                     <div className='boton'>
-                        <button type="submit">Comprar</button>
+                        <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
                     </div>
                 </div>
             </div></>
