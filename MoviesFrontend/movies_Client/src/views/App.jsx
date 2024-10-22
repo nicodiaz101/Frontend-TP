@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Home'
 import Buscar from './Buscar';
-import Carrito from './Carrito';
+import CarritoPage from './CarritoPage';
 import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import MovieList from "../components/MovieList/MovieList.jsx";
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buscar" element={<Buscar />} />
-          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/carrito" element={<CarritoPage />} />
           <Route path="/movies" element={<MovieList />} />
           <Route path="/movies/:movieId" element={<MoviePage />} /> {/* Ruta dinámica con movieId */}
           <Route path="/login" element={<LoginPage/>} />

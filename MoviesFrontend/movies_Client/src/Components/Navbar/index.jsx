@@ -18,6 +18,7 @@ export default function Navbar() {
             console.log('Token:', localStorage.getItem("token"));
             console.log("Role:", localStorage.getItem("userRole"));
             console.log('Usuario logeado:', localStorage.getItem("user"));
+            console.log("Carrito:", localStorage.getItem("cart"));
         }
     }, []);
 
@@ -26,6 +27,7 @@ export default function Navbar() {
         localStorage.removeItem("token"); // Remueve el token
         localStorage.removeItem("userRole"); // Remueve datos del usuario
         localStorage.removeItem("user"); // Remueve datos del usuario
+        localStorage.removeItem("cart"); // Remueve el carrito
         setLoggedIn(false); // Actualiza el estado
         navigate("/login"); // Redirige al login
     };

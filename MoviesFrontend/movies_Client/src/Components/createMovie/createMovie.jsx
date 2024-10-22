@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./createMovie.css";
 
 const CreateMovie = () => {
-    const [tittle, setTittle] = useState("");
+    const [title, setTitle] = useState("");
     const [releaseDate, setReleaseDate] = useState("");
     const [imdbScore, setImdbScore] = useState("");
     const [price, setPrice] = useState("");
@@ -21,7 +21,7 @@ const CreateMovie = () => {
         e.preventDefault();
 
         const movieData = {
-            tittle,
+            title,
             releaseDate,
             imdbScore,
             price,
@@ -45,7 +45,7 @@ const CreateMovie = () => {
 
             if (response.ok) {
                 alert("Movie created successfully");
-                navigate("/movies");
+                navigate("/");
             } else {
                 setError("Error creating movie");
             }
@@ -62,9 +62,9 @@ const CreateMovie = () => {
                 <div className="cm-form">
                     <input
                         type="text"
-                        placeholder="Tittle"
-                        value={tittle}
-                        onChange={(e) => setTittle(e.target.value)}
+                        placeholder="Title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
                     />
                     <input
                         type="number"

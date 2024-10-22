@@ -12,16 +12,17 @@ const RemoveMovie = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:4002/movies/${id}`, {
+            const response = await fetch(`http://localhost:4002/movies/`, {
                 method: "DELETE",
                 headers: {
+                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 },
             });
 
             if (response.ok) {
                 alert("Movie removed successfully");
-                navigate("/movies");
+                navigate("/");
             } else {
                 setError("Error removing movie");
             }
@@ -36,7 +37,7 @@ const RemoveMovie = () => {
             <span className="title">Eliminar pelicula del catálogo</span>
             <form className="rm-form" onSubmit={handleRemoveMovie}>
                 <input
-                    type="number"
+                    type="text"
                     placeholder="ID"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
