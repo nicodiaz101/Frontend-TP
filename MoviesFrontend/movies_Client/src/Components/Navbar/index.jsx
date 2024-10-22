@@ -12,12 +12,13 @@ export default function Navbar() {
 
     // Revisa el estado de autenticación al cargar el componente
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem("user"));
+        const user = JSON.parse(localStorage.getItem("userId"));
         if (user) {
             setLoggedIn(true); // Si hay un usuario, se marca como logueado
             console.log('Token:', localStorage.getItem("token"));
             console.log("Role:", localStorage.getItem("userRole"));
-            console.log('Usuario logeado:', localStorage.getItem("user"));
+            console.log('Usuario logeado: ',localStorage.getItem("userId"));
+            console.log("Email del Usuario:", localStorage.getItem("email"));
             console.log("Carrito:", localStorage.getItem("cart"));
         }
     }, []);
@@ -26,7 +27,8 @@ export default function Navbar() {
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remueve el token
         localStorage.removeItem("userRole"); // Remueve datos del usuario
-        localStorage.removeItem("user"); // Remueve datos del usuario
+        localStorage.removeItem("userId"); // Remueve datos del usuario
+        localStorage.removeItem("email"); // Remueve email del usuario
         localStorage.removeItem("cart"); // Remueve el carrito
         setLoggedIn(false); // Actualiza el estado
         navigate("/login"); // Redirige al login
