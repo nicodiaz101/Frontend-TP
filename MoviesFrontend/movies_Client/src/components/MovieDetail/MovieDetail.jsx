@@ -44,22 +44,22 @@ const MovieDetail = () => {
         <><div
             className="movie-background" style={{backgroundImage:`url(${movie.poster})`, }}>
         </div>
-            <div className='contenedor-general'>
-                <div className='contenedor-medio'>
-                    <img src={movie.poster} />
-                    <div className='contenedor-medio-textos'>
-                        <h1>{movie.title}</h1>
-                        <p>Género: {movie.genre?.name}</p>
-                        <b>Precio: ${movie.price}</b>
-                    </div>    
+        <div className='contenedor-general'>
+            <div className='contenedor-medio'>
+                <img src={movie.poster} />
+                <div className='contenedor-medio-textos'>
+                    <h1>{movie.title}</h1>
+                    <p>Género: {movie.genre?.name}</p>
+                    <b>Precio: ${movie.price}</b>
+                </div>    
+            </div>
+            <div className='contenedor-chico'>
+                <p>{movie.description}</p>
+                <div className='boton'>
+                    <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
                 </div>
-                <div className='contenedor-chico'>
-                    <p>{movie.description}</p>
-                    <div className='boton'>
-                        <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div></>
+            </div>
+        </div></>
     );
 };
 
