@@ -10,6 +10,7 @@ const CarritoPage = () => {
             <div className="cart-container">
                 <Carrito></Carrito>
             </div>
+            <Footer></Footer>
         </>
     )
 }

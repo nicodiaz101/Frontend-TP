@@ -119,3 +119,9 @@
 .order-confirmation button:hover {
     background-color: #45a049;
 }
+.CarritoVacio{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1em;
+    color: black;
+}
