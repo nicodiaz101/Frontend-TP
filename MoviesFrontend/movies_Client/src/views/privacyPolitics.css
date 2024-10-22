@@ -1,0 +1,21 @@
+.politicasPriv{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+h2{
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.pTerms{
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}

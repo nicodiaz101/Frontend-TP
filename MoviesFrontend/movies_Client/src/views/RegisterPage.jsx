@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Register from "../components/Login-Register/Register";
 import "./register-loginPage.css";
+import Footer from '../components/Footer'
 
 const RegisterPage = () => {
     return (
@@ -9,6 +10,7 @@ const RegisterPage = () => {
             <div className="container">
                 <Register></Register>
             </div>
+            <Footer></Footer>
         </>
     );
 }

@@ -7,7 +7,7 @@ export const Footer_Nav = styled.footer`
     color: #fff;
     padding: 0.7em 0;
     width: 100%;
-    height: 300px;
+    height: 270px;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     padding: 0 1rem;
@@ -17,21 +17,36 @@ export const Footer_Nav = styled.footer`
         }
     }
     .links{
-        display: flex;
+        display: grid;
         justify-content: center;
+        gap: 1rem;
         a{
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover{
+        color: #0396c7;
         }
     }
     .legal{
-        display: flex;
+        display: grid;
         justify-content: center;
+        gap: 1rem;
         a{
             color: #fff;
-            font-size: 1.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
             margin: 0 1rem;
+            transition: color 0.3s ease;
         }
+        a:hover{
+             color: #0396c7;
+        }
+    }
+    li{
+        list-style-type: none;
     }
 `;

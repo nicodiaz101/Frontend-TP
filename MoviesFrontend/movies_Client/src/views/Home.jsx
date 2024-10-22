@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import MovieList from '../components/MovieList/MovieList'
+import Footer from '../components/Footer'
 
 const Home = () => {
 
@@ -7,6 +8,7 @@ const Home = () => {
         <>
             <Navbar></Navbar>
             <MovieList></MovieList>
+            <Footer></Footer>
         </>
     )
 }

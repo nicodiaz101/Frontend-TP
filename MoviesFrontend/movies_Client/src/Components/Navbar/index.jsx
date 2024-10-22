@@ -34,7 +34,7 @@ export default function Navbar() {
         <Header>
             <Nav>
                 <div className="logo">
-                    <img src="./src/Img/cinelogo.png" alt="logo" />
+                    <Link to="/"><img src="./src/Img/cinelogo.png" alt="logo" /></Link>
                 </div>
                 <div className="menu-links">
                     <Menu open={open}>
