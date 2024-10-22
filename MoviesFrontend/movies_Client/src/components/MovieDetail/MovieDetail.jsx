@@ -37,8 +37,10 @@ const MovieDetail = () => {
                     </div>    
                 </div>
                 <div className='contenedor-chico'>
-                    
                     <p>{movie.description}</p>
+                    <div className='boton'>
+                        <button type="submit">Comprar</button>
+                    </div>
                 </div>
             </div></>
     );

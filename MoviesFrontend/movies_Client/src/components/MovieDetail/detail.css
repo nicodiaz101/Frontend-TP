@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 100px;
 }
 
@@ -25,16 +25,14 @@
 .contenedor-medio{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: rgb(252, 236, 227);
     border: 1px solid black;
     box-shadow: 0px 6px 10px rgb(0, 0, 0);
-    
 }
 .contenedor-medio img{
     width: 300px;
 }
 .contenedor-medio-textos{
+    background-color: rgb(250, 242, 231);
     padding-bottom: 40px;
     padding-left: 20px;
     text-align: left;
@@ -55,16 +53,20 @@
 
 .contenedor-chico{
     display: flex;
-    padding-left: 100px;
-    width: 100%; 
+    flex-direction: column;
+    width: 30%;
+    height: 30%; 
 }
 .contenedor-chico p{
-    background-color: rgba(255, 204, 165, 0.161);
+    background-color: rgba(0, 0, 0, 0.541);
     border-radius: 3%;
     box-shadow: 0px 6px 10px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
-    font-size: 30px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: left;
     padding: 70px;
+}
+.boton{
+    padding-top: 40px;
 }
