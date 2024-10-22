@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { useResponsive } from '../../Hooks/useResponsive';
 
 export const Header = styled.header`
-    background: radial-gradient(circle, #001341db 4%, #010a24 100%);
+    background: radial-gradient(circle, #000000cd 4%, #000000 100%);
     color: #212020;
     padding: 0.7em 0;
     margin: 0;
@@ -37,12 +37,12 @@ export const Nav = styled.nav`
         transition: color 0.3s ease;
     }
     .menu-links a:hover{
-        color: #00fded;
+        color: #0050fd;
     }
     .btn {
         display: none;
         button{
-            background-image: linear-gradient(to right, #ffffff 0%, #93ffe9 30%, #0611a5 100%);
+            background-image: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #12006c 100%);
             background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
             background-position: left center; /* Posición inicial */
             border: 0.17em transparent;
