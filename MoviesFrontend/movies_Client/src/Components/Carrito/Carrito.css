@@ -12,7 +12,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 8px;
 }
@@ -28,9 +27,13 @@
     flex-grow: 1;
     p{
         color: #4CAF50;
+        font-weight: 700;
         font-size: 1.2em;
+        text-align: left;
+        padding-bottom: 20px;
     }
     h2{
+        text-align: left;
         font-size: 1.8em;
         margin-bottom: 10px;
     }
@@ -62,8 +65,8 @@
 .checkout-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #23ca29;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -73,7 +76,7 @@
     background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0);
     max-width: 500px;
     margin: 50px auto;
     text-align: center;
@@ -81,6 +84,7 @@
     color: #333;
 
     .precio p{
+        
         color: #4CAF50;
     }
 }
