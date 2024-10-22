@@ -4,21 +4,18 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #000000;
     background-size: cover;
     background-position: center center;
     filter: blur(10px) brightness(0.7); /* Desenfoque de la imagen */
     z-index: -1; /* La imagen de fondo queda detrás del contenido */
-    overflow: hidden;
     border: 1px solid #000000; /* Bordes negros para evitar resplandor de desenfoque */
 }
 .contenedor-general{
-    padding: 100px;
+    padding: 200px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    margin: 100px;
 }
 
 
