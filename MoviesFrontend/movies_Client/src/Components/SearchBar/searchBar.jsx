@@ -24,7 +24,7 @@ const SearchBar = () => {
     return (
         <div className="search-bar">
             <input
-                type="Long"
+                type="text"
                 placeholder="Search for movies..."
                 value={query}
                 onChange={handleInputChange}

@@ -6,7 +6,6 @@ const PrivacyPolitics = () => {
     return (
         <>
             <Navbar></Navbar>
-            <h1>Privacy Politics</h1>
             <div className="politicasPriv">
                 <h1>Política de Privacidad</h1>
                 <p className="pTerms">
