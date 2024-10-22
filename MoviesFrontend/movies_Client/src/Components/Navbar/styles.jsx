@@ -37,12 +37,12 @@ export const Nav = styled.nav`
         transition: color 0.3s ease;
     }
     .menu-links a:hover{
-        color: #0050fd;
+        color: #00f9aa;
     }
     .btn {
         display: none;
         button{
-            background-image: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #12006c 100%);
+            background-image: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #002850 100%);
             background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
             background-position: left center; /* Posición inicial */
             border: 0.17em transparent;
@@ -54,7 +54,7 @@ export const Nav = styled.nav`
             text-decoration: none;
             font-size: 1.15em;
             cursor: pointer;
-            transition: background-position 2s ease, color 2s ease; /* Aplica la transición al fondo y al color */
+            transition: background-position 1s ease, color 1s ease; /* Aplica la transición al fondo y al color */
         }
         button:hover {
             background-position: right center;

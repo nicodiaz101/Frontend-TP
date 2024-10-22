@@ -68,5 +68,31 @@
     padding: 70px;
 }
 .boton{
-    padding-top: 40px;
+    padding-top: 70px;
+}
+button {
+    background-image: linear-gradient(to right, #ffffff00 0%, #6a6969 30%, #010556 100%);
+    background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
+    background-position: left center; /* Posición inicial */
+    border: 0.17em transparent;
+    border-radius: 1.1em;
+    width: 200px;
+    height: 45px;
+    color: #000000; /* Color inicial del texto */
+            
+    text-decoration: none;
+    font-size: 1.15em;
+    cursor: pointer;
+    transition: background-position 1s ease, color 1s ease; /* Aplica la transición al fondo y al color */
+    z-index: 1;
+    position: relative; /* Asegura que el texto no se vea afectado por el fondo */
+}
+
+button:hover {
+    background-position: right center;
+    color: #ffffff; /* Color del texto al hacer hover */
+}
+
+button:active {
+    transform: scale(0.95);
 }

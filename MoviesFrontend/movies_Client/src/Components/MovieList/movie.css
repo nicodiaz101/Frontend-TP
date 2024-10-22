@@ -45,6 +45,7 @@
 }
 
 .movie-info h2 {
+  text-align: left;
   font-size: 1.6em;
   margin-top: 0.6em;
   margin-bottom: 0.08em;
