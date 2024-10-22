@@ -17,7 +17,7 @@ export default function Navbar() {
             setLoggedIn(true); // Si hay un usuario, se marca como logueado
             console.log('Token:', localStorage.getItem("token"));
             console.log("Role:", localStorage.getItem("userRole"));
-            console.log('Usuario logeado:', localStorage.getItem("user"));
+            console.log('Usuario logeado: ',localStorage.getItem("userId") ," ",localStorage.getItem("user"));
             console.log("Carrito:", localStorage.getItem("cart"));
         }
     }, []);
@@ -26,6 +26,7 @@ export default function Navbar() {
     const handleLogout = () => {
         localStorage.removeItem("token"); // Remueve el token
         localStorage.removeItem("userRole"); // Remueve datos del usuario
+        localStorage.removeItem("userId"); // Remueve datos del usuario
         localStorage.removeItem("user"); // Remueve datos del usuario
         localStorage.removeItem("cart"); // Remueve el carrito
         setLoggedIn(false); // Actualiza el estado
