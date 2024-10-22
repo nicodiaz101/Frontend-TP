@@ -12,7 +12,7 @@ const RemoveMovie = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:4002/movies/`, {
+            const response = await fetch(`http://localhost:4002/movies/{id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const RemoveMovie = () => {
             <span className="title">Eliminar pelicula del catálogo</span>
             <form className="rm-form" onSubmit={handleRemoveMovie}>
                 <input
-                    type="text"
+                    type="number"
                     placeholder="ID"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
