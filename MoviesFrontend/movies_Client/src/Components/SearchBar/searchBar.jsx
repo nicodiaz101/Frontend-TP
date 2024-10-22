@@ -4,13 +4,17 @@ import "./searchBar.css";
 
 const SearchBar = () => {
     const [query, setQuery] = useState("");
-    const [results, setResults] = useState([]);
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:4002/movies/available`)
-            .then(response => response.json())
-            .then(data => setResults(data))
-            .catch(error => console.error("Error fetching data:", error));
+        if (query.length > 2) {
+            fetch(`http://localhost:4002/movies/title}`)
+                .then(response => response.json())
+                .then(data => setMovies(data.results))
+                .catch(error => console.error("Error fetching movies:", error));
+        } else {
+            setMovies([]);
+        }
     }, [query]);
 
     const handleInputChange = (e) => {
@@ -25,8 +29,8 @@ const SearchBar = () => {
                 value={query}
                 onChange={handleInputChange}
             />
-            <div className="results">
-                {results.map(movie => (
+            <div className="movie-results">
+                {movies.map(movie => (
                     <MovieCard key={movie.id} movie={movie} />
                 ))}
             </div>
