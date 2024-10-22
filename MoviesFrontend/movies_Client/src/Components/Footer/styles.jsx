@@ -7,10 +7,11 @@ export const Footer_Nav = styled.footer`
     color: #fff;
     padding: 0.7em 0;
     width: 100%;
-    height: 270px;
+    height: 170px;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     padding: 0 1rem;
+    margin-top: 4.2rem;
     .logo{
         img{
             width: 127px;
@@ -43,7 +44,7 @@ export const Footer_Nav = styled.footer`
             transition: color 0.3s ease;
         }
         a:hover{
-             color: #0396c7;
+            color: #00f9aa;
         }
     }
     li{
