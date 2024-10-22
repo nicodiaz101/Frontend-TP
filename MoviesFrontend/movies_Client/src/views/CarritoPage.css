@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cart-container{
+    padding: 4em;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+    height: 115vh;
+}
