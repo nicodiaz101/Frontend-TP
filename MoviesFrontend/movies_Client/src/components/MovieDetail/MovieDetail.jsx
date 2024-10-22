@@ -59,7 +59,7 @@ const MovieDetail = () => {
                     <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
                 </div>
             </div>
-        </div></>
+            </div></>
     );
 };
 
