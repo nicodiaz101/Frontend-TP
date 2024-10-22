@@ -10,7 +10,7 @@ const AdminPage = () => {
             <Navbar></Navbar>
             <div className="adminPage">
                 <h1>Admin Page!</h1>
-                <p>Elige una de las opciones</p>
+                <p className="pAdmin">Elige una de las opciones</p>
                 <div className="buttons">
                     <Link to="/newMovie">
                         <button>
