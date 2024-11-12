@@ -48,8 +48,13 @@ const Carrito = () => {
         if (!token) {
             window.location.href = "/login"; // Redirige a login si no está loggeado
         } else {
-            // Crear lista de títulos de películas
-            const movieTitles = cart.map(item => item.title);
+            // Crear lista de títulos de películas con cantidades
+            const movieTitles = [];
+            cart.forEach(item => {
+                for (let i = 0; i < item.quantity; i++) {
+                    movieTitles.push(item.title);
+                }
+            });
 
             // Preparar la solicitud de compra
             const orderRequest = {
