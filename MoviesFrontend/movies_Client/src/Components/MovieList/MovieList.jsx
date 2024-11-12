@@ -16,7 +16,7 @@ const MovieList = () => {
 
     return (
         <div className="movie-list">
-            {movies.content.map((movie) => (
+            {movies && movies.content && movies.content.map((movie) => (
                 <MovieCard
                 key={movie.movieId}
                 movieId={movie.movieId} // Pasamos el movieId al MovieCard
