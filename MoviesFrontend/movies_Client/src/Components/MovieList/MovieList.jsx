@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import MovieCard from "./MovieCard";
+import {useDispatch, useSelector} from 'react-redux';
+import { fetchMovies } from "../../Redux/movieSlice";
 
 const MovieList = () => {
-    const [movies, setMovies] = useState({ content: [] });
+    const dispatch = useDispatch();
+    const {items: movies, loading, error} = useSelector((state) => state.movies)
 
-    useEffect(()=>{
-        fetch('http://localhost:4002/movies/available')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Datos obtenidos:', data)
-            setMovies(data) //Actualizamos el estado con los datos obtenidos
-        })
-        .catch((error) => {
-            console.error('Error al obtener los datos:', error)
-        })
-    }, [])
+    useEffect(() => {
+        dispatch(fetchMovies());
+    }, [dispatch]);
+
+    if (loading) return <h1>Cargando películas...</h1>;
+    if (error) return <h1>Error al cargar las películas: {error}</h1>;
 
     return (
         <div className="movie-list">
