@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import SearchBar from "../Components/SearchBar/searchBar";
+import SearchBar from "../components/SearchBar/searchBar";
 import Footer from '../components/Footer'
 import "./search.css"
 

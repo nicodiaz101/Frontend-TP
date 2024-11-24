@@ -8,7 +8,7 @@ import RegisterPage from './RegisterPage';
 import LoginPage from './LoginPage';
 import MovieList from "../components/MovieList/MovieList.jsx";
 import MoviePage from './MoviePage';
-import AdminPage from './AdminPage';
+import AdminPage from './adminPage';
 import PrivacyPolitics from './privacyPolitics';
 import Terminos from './terms';
 import Cambios from './cambios';
