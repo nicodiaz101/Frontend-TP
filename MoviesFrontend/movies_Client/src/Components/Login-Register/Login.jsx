@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./register-login.css";
+import { useDispatch } from "react-redux";
+import { loginUsers } from "../../Redux/userSlice"
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -9,37 +11,29 @@ const Login = () => {
     const [error, setError] = useState(""); // Estado para el mensaje de error
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleLogin = async (e) => { // Función para iniciar sesión
         e.preventDefault();
-
-        const credentials = {
-            username,
-            password,
-        };
-
         try {
-            const response = await fetch("http://localhost:4002/auth/login", { // POST al servidor
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(credentials),
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                localStorage.setItem("token", data.token); // Guardar el JWT en el localStorage para mantener la sesión activa
-                localStorage.setItem("userRole", data.role); // Guardar el rol del usuario
-                localStorage.setItem("userId", data.userId); // Guardar el id del usuario
-                localStorage.setItem("email", data.email); // Guardar el email del usuario
+            const credentials = {
+                username,
+                password,
+            };
+            const response = await dispatch(loginUsers(credentials)).unwrap();
+            if (response) {
+                localStorage.setItem("token", response.token); // Guardar el JWT en el localStorage para mantener la sesión activa
+                localStorage.setItem("userRole", response.role); // Guardar el rol del usuario
+                localStorage.setItem("userId", response.userId); // Guardar el id del usuario
+                localStorage.setItem("email", response.email); // Guardar el email del usuario
                 alert("Inicio de sesión exitoso");
                 navigate("/"); // Redirigir al home
             } else {
-                setError("Credenciales incorrectas!");
+                setError("Credenciales incorrectas. Intente de nuevo.");
             }
         } catch (error) {
             console.error("Error:", error);
+            console.error("Error response:", error.response?.data);
             setError("Error al iniciar sesión. Intente de nuevo.");
         }
     };

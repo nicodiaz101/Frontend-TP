@@ -7,6 +7,7 @@ const MovieDetail = () => {
     const [movie, setMovie] = useState(null); // Estado para almacenar los detalles de la película
 
     useEffect(() => {
+        
         // Realiza el fetch para obtener los detalles de la película con el movieId
         fetch(`http://localhost:4002/movies/${movieId}`)
             .then((response) => response.json())
