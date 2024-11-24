@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./createMovie.css";
 import { useDispatch } from "react-redux";
@@ -15,12 +15,12 @@ const CreateMovie = () => {
     const [description, setDescription] = useState("");
     const [genre, setGenre] = useState("");
     const [director, setDirector] = useState("");
-    const [error, setError] = useState("");
+    const [error, setError] = useState(""); // Estado para el mensaje de error
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleCreateMovie = async (e) => {
+    const handleCreateMovie = async (e) => { // Función para crear una película
         e.preventDefault();
         try {
             const movieData = {
@@ -41,7 +41,7 @@ const CreateMovie = () => {
         } catch (error) {
             console.error("Error:", error);
             console.error("Error response:", error.response?.data);
-            setError("Error al crear la película :(");
+            setError("Error al crear la película :( ");
         }
     };
 

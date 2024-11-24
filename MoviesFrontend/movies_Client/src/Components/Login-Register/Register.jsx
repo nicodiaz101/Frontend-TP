@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./register-login.css";
+import { useDispatch } from "react-redux";
+import { registerUsers } from "../../Redux/userSlice"
 
 const Register = () => {
-    const [nombre, setNombre] = useState("");   // Hooks para los datos del usuario
+    const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [pais, setPais] = useState("");
     const [email, setEmail] = useState("");
@@ -15,42 +17,35 @@ const Register = () => {
     const role = "USER";  // Role default para un nuevo usuario
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleRegister = async (e) => { // Función para registrar al usuario
         e.preventDefault();
         
-        if(password !== confirmPassword) {
-            setError("Las contraseñas no coinciden");
+        if (password !== confirmPassword) {
+            setError("Las contraseñas no coinciden.");
             return;
         }
-
-        const userData = {  // Datos del usuario
-            firstname: nombre,
-            lastname: apellido,
-            email,
-            username,
-            role,
-            password,
-            country: pais
-        };
-
         try {
-            const response = await fetch("http://localhost:4002/auth/register", {   // POST al servidor
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData),
-            });
-
-            if (response.ok) {
-                alert("Registro exitoso, ahora puede iniciar sesión");
+            const userData = {  // Datos del usuario
+                firstname: nombre,
+                lastname: apellido,
+                email,
+                username,
+                role,
+                password,
+                country: pais
+            };
+            const response = await dispatch(registerUsers(userData)).unwrap();
+            if (response) {
+                alert("Registro exitoso, ahora puede iniciar sesión!"); // Mensaje de éxito
                 navigate("/login"); // Lleva al usuario a la página de login
             } else {
                 setError("Error al registrar. Intente de nuevo."); // Mensaje de error
             }
         } catch (error) {
             console.error("Error:", error);
+            console.error("Error response:", error.response?.data);
             setError("Error al registrar. Intente de nuevo.");
         }
     };
