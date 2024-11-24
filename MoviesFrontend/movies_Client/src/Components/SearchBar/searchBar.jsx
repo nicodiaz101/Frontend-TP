@@ -1,57 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovies, setQuery } from "../../Redux/searchSlice";
 import MovieCard from "../MovieList/MovieCard";
 import "./searchBar.css";
 
 const SearchBar = () => {
-    const [query, setQuery] = useState("");
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        // Debounce la búsqueda para evitar múltiples llamadas rápidas al servidor
-        const delayDebounceFn = setTimeout(() => {
-            if (query.length > 2) {
-                setIsLoading(true);
-                setError(null); // Limpiar errores previos
-                fetch(`http://localhost:4002/movies/title?query=${query}`)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error("Error al solicitar la pelicula");
-                        }
-                        return response.json();
-                    })
-                    .then((data) => {
-                        setMovies(data.results || []);
-                    })
-                    .catch((error) => {
-                        console.error("Error fetching movies:", error);
-                        setError("Incapaz de solicitar la pelicula. Por favor, intentar de nuevo mas tarde.");
-                    })
-                    .finally(() => {
-                        setIsLoading(false);
-                    });
-            } else {
-                setMovies([]);
-            }
-        }, 300); // 300ms de debounce
-
-        return () => clearTimeout(delayDebounceFn); // Limpiar el timeout anterior
-    }, [query]);
+    const dispatch = useDispatch();
+    const { query, movies, loading: isLoading, error } = useSelector((state) => state.search);
 
     const handleInputChange = (e) => {
-        setQuery(e.target.value);
+        const value = e.target.value;
+        dispatch(setQuery(value)); // Actualiza el query en el estado global
+
+        if (value.length > 2) {
+            dispatch(fetchMovies(value)); // Lanza la acción de búsqueda
+        }
     };
 
     return (
         <div className="search-bar">
             <input
                 type="text"
-                placeholder="Search for movies..."
+                placeholder="Buscar peliculas..."
                 value={query}
                 onChange={handleInputChange}
             />
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p>Cargando...</p>}
             {error && <p className="error">{error}</p>}
             <div className="movie-results">
                 {movies.map((movie) => (
