@@ -56,12 +56,12 @@
     }
 }
 
-.quantity-controls {
+.cantidad-controls {
     display: flex;
     align-items: center;
 }
 
-.quantity-controls button {
+.cantidad-controls button {
     padding: 5px 10px;
     margin: 0 10px;
     background-color: #ddd;
@@ -69,7 +69,7 @@
     cursor: pointer;
 }
 
-.remove-btn {
+.eliminar-btn {
     background-color: #ff4d4d;
     color: white;
     padding: 5px 10px;
@@ -79,7 +79,7 @@
     margin-top: 10px;
 }
 
-.checkout-btn {
+.carrito-btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #23ca29;

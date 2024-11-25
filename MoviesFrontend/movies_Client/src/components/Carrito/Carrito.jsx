@@ -101,12 +101,12 @@ const Carrito = () => {
                                 <div className="cart-item-info">
                                     <h2>{item.title}</h2>
                                     <p>Precio: ${item.price}</p>
-                                    <div className="quantity-controls">
+                                    <div className="cantidad-controls">
                                         <button onClick={() => updateQuantity(item.movieId, -1)}>-</button>
                                         <span>{item.quantity}</span>
                                         <button onClick={() => updateQuantity(item.movieId, 1)}>+</button>
                                     </div>
-                                    <button onClick={() => removeFromCart(item.movieId)} className="remove-btn">Quitar</button>
+                                    <button onClick={() => removeFromCart(item.movieId)} className="eliminar-btn">Quitar</button>
                                 </div>
                             </div>
                         ))}
@@ -114,7 +114,7 @@ const Carrito = () => {
                             <p>Total: ${cart.reduce((acc, item) => acc + (item.price - (item.discountPercentage * item.price / 100))* item.quantity, 0)}</p>
                         </div>
                         {error && <p className= "error">{error}</p>} {/* Muestra el mensaje de error */}
-                        <button className="checkout-btn" onClick={handleCheckout}>Realizar compra</button>
+                        <button className="carrito-btn" onClick={handleCheckout}>Realizar compra</button>
                     </>
                 )}
                 {/* Mostrar detalles de la orden tras el checkout */}
