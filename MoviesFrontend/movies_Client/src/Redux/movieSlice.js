@@ -4,6 +4,8 @@ import axios from "axios";
 const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
 const URL = "http://localhost:4002/movies"; // URL para obtener todas las peliculas
 const URL_DETAIL = 'http://localhost:4002/movies/'; // URL para obtener los detalles de una película
+const URL_DELETE = 'http://localhost:4002/movies/'; // URL para eliminar una película
+const URL_UPDATE = 'http://localhost:4002/movies/'; // URL para actualizar una película
 
 export const fetchMovies = createAsyncThunk("movies/fetchmovies", async () => {
   const { data } = await axios(URL_AVAILABLE);
@@ -24,6 +26,28 @@ export const createMovies = createAsyncThunk("movies/createmovies", async (newMo
 
 export const fetchMovieDetails = createAsyncThunk("movies/fetchmoviedetails", async (movieId) => {
   const { data } = await axios(`${URL_DETAIL}${movieId}`);
+  return data;
+});
+
+export const deleteMovie = createAsyncThunk("movies/deletemovie", async (movieId) => {
+  const token = localStorage.getItem("token");
+  const { data } = await axios.delete(`${URL_DELETE}${movieId}`, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    }
+  });
+  return data;
+});
+
+export const updateMovie = createAsyncThunk("movies/updatemovie", async (movie) => {
+  const token = localStorage.getItem("token");
+  const { data } = await axios.put(`${URL_UPDATE}${movie.id}`, movie, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    }
+  });
   return data;
 });
 
@@ -60,6 +84,29 @@ const movieSlice = createSlice({
       })
       .addCase(fetchMovieDetails.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
+      })
+      .addCase(deleteMovie.fulfilled, (state, action) => {
+        state.items.content = state.items.content.filter((movie) => movie.id !== action.payload.id);
+      })
+      .addCase(deleteMovie.rejected, (state, action) => {
+        (state.loading = false), (state.error = action.error.message);
+      })
+      .addCase(deleteMovie.pending, (state) => {
+        (state.loading = true), (state.error = null);
+      })
+      .addCase(updateMovie.fulfilled, (state, action) => {
+        state.items.content = state.items.content.map((movie) => {
+          if (movie.id === action.payload.id) {
+            return action.payload;
+          }
+          return movie;
+        });
+      })
+      .addCase(updateMovie.rejected, (state, action) => {
+        (state.loading = false), (state.error = action.error.message);
+      })
+      .addCase(updateMovie.pending, (state) => {
+        (state.loading = true), (state.error = null);
       });
   },
 });
