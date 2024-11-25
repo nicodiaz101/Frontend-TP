@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
 const URL = "http://localhost:4002/movies"; // URL para obtener todas las peliculas
+const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
 const URL_DETAIL = 'http://localhost:4002/movies/'; // URL para obtener los detalles de una película
 const URL_DELETE = 'http://localhost:4002/movies/'; // URL para eliminar una película
 const URL_UPDATE = 'http://localhost:4002/movies/'; // URL para actualizar una película
