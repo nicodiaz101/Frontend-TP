@@ -101,7 +101,7 @@ const Carrito = () => {
                                 <div className="cart-item-info">
                                     <h2>{item.title}</h2>
                                     <p>Precio: ${item.price}</p>
-                                    <div className="cantidad-controls">
+                                    <div className="quantity-controls">
                                         <button onClick={() => updateQuantity(item.movieId, -1)}>-</button>
                                         <span>{item.quantity}</span>
                                         <button onClick={() => updateQuantity(item.movieId, 1)}>+</button>
@@ -114,7 +114,7 @@ const Carrito = () => {
                             <p>Total: ${cart.reduce((acc, item) => acc + (item.price - (item.discountPercentage * item.price / 100))* item.quantity, 0)}</p>
                         </div>
                         {error && <p className= "error">{error}</p>} {/* Muestra el mensaje de error */}
-                        <button className="carrito-btn" onClick={handleCheckout}>Realizar compra</button>
+                        <button className="checkout-btn" onClick={handleCheckout}>Realizar compra</button>
                     </>
                 )}
                 {/* Mostrar detalles de la orden tras el checkout */}
