@@ -1,16 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+import axios from "axios";
 
 // Acción asíncrona para buscar películas
-export const fetchMovies = createAsyncThunk(
-  "search/fetchMovies",
+export const searchMovies = createAsyncThunk(
+  "search/searchMovies",
   async (query) => {
-    const response = await fetch(`http://localhost:4002/movies/title?title=${query}`);
-    if (!response.ok) {
-      throw new Error("Error al solicitar la pelicula");
-    }
-    const data = await response.json();
-    return data.results;
+    const { data } = await axios(`http://localhost:4002/movies/title?title=${query}`);
+    return data;
   }
 );
 
@@ -29,21 +25,17 @@ const searchSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMovies.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(searchMovies.pending, (state) => {
+        (state.loading = true), (state.error = null);
       })
-      .addCase(fetchMovies.fulfilled, (state, action) => {
-        state.loading = false;
-        state.movies = action.payload;
+      .addCase(searchMovies.fulfilled, (state, action) => {
+        (state.loading = false), (state.movies = action.payload);
       })
-      .addCase(fetchMovies.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
+      .addCase(searchMovies.rejected, (state, action) => {
+        (state.loading = false), (state.error = action.error.message);
       });
   },
 });
 
 export const { setQuery } = searchSlice.actions;
 export default searchSlice.reducer;
-
