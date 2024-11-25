@@ -7,9 +7,21 @@
         font-size: 2.5em;
     }
 
-    p{
-        font-size: 1.12em;
-        color: #ffffff;
+    .precio-total{
+        p{
+            font-size: 1.33em;
+            color: rgb(10, 80, 7);
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+    }
+
+    .error{
+        color: red;
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 }
 
@@ -128,6 +140,7 @@
 .order-confirmation button:hover {
     background-color: #45a049;
 }
+
 .CarritoVacio{
     text-align: center;
     margin-top: 20px;

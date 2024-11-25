@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL_AVAILABLE = "http://localhost:4002/movies/available";
-const URL = "http://localhost:4002/movies";
+const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
+const URL = "http://localhost:4002/movies"; // URL para obtener todas las peliculas
+const URL_DETAIL = 'http://localhost:4002/movies/'; // URL para obtener los detalles de una película
 
 export const fetchMovies = createAsyncThunk("movies/fetchmovies", async () => {
   const { data } = await axios(URL_AVAILABLE);
@@ -18,6 +19,11 @@ export const createMovies = createAsyncThunk("movies/createmovies", async (newMo
       "Authorization": `Bearer ${token}`,
     }
   });
+  return data;
+});
+
+export const fetchMovieDetails = createAsyncThunk("movies/fetchmoviedetails", async (movieId) => {
+  const { data } = await axios(`${URL_DETAIL}${movieId}`);
   return data;
 });
 
@@ -44,6 +50,15 @@ const movieSlice = createSlice({
         state.items.content = [...state.items.content, action.payload]
       })
       .addCase(createMovies.rejected, (state, action) => {
+        (state.loading = false), (state.error = action.error.message);
+      })
+      .addCase(fetchMovieDetails.pending, (state) => {
+        (state.loading = true), (state.error = null);
+      })
+      .addCase(fetchMovieDetails.fulfilled, (state, action) => {
+        (state.loading = false), (state.items = action.payload);
+      })
+      .addCase(fetchMovieDetails.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
       });
   },

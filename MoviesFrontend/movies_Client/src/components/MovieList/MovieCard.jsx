@@ -1,5 +1,6 @@
 import './movie.css';
 import { Link } from "react-router-dom";
+
 const MovieCard = ({movieId,title, genre, price, poster}) => {
     return (
         <>
