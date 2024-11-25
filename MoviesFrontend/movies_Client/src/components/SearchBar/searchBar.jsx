@@ -33,7 +33,7 @@ const SearchBar = () => {
             {loading && <p>Cargando...</p>}
             {error && <p className="error">No se encontraron películas.</p>}
             <div className="movie-results">
-                {movies && movies.content && movies.map((movie) => (
+                {movies && movies.map((movie) => (
                     <MovieCard 
                         key={movie.movieId}
                         movieId={movie.movieId} // Pasamos el movieId al MovieCard
