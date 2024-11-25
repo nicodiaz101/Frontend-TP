@@ -83,12 +83,7 @@ const movieSlice = createSlice({
         (state.loading = false), (state.error = action.error.message);
       })
       .addCase(fetchMovieDetails.fulfilled, (state, action) => {
-        state.loading = false;
-        state.details = {
-            ...action.payload,
-            genre: action.payload.genre || [], // Asegura que `genre` sea un array
-            director: action.payload.director || null, // Asegura que `director` tenga un valor por defecto
-        };
+        (state.loading = false), (state.items = action.payload);
       })
       .addCase(deleteMovies.fulfilled, (state, action) => {
         state.items.content = state.items.content.filter((movie) => movie.id !== action.payload.id);
@@ -100,12 +95,7 @@ const movieSlice = createSlice({
         (state.loading = true), (state.error = null);
       })
       .addCase(updateMovies.fulfilled, (state, action) => {
-        state.items.content = state.items.content.map((movie) => {
-          if (movie.id === action.payload.id) {
-            return action.payload;
-          }
-          return movie;
-        });
+        state.items.content = [...state.items.content, action.payload]
       })
       .addCase(updateMovies.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
