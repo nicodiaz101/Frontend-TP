@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // Para capturar el movieId de la URL
 import "./detail.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovieDetails } from "../../Redux/movieSlice";
 
 const MovieDetail = () => {
     const { movieId } = useParams(); // Captura el parámetro dinámico movieId desde la URL
-    const [movie, setMovie] = useState(null); // Estado para almacenar los detalles de la película
+    const dispatch = useDispatch();
+
+    const {items: movie, loading, error} = useSelector((state) => state.movies);
 
     useEffect(() => {
-        
-        // Realiza el fetch para obtener los detalles de la película con el movieId
-        fetch(`http://localhost:4002/movies/${movieId}`)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Detalles de la película:', data); // Verifica si obtienes los datos
-                setMovie(data); // Guarda los datos de la película en el estado
-            })
-            .catch((error) => {
-                console.error('Error al obtener los detalles de la película:', error);
-            });
-    }, [movieId]); // El efecto se ejecuta cada vez que el movieId cambia
+        const response = dispatch(fetchMovieDetails(movieId));
+        console.log('Detalles de la película:', response); // Verifica si obtienes los datos
+    }, [dispatch, movieId]); // El efecto se ejecuta cada vez que el movieId cambia
+
+    if (loading) return <h1>Cargando detalles de la película...</h1>;
+    if (error) return <h1>Error al cargar los detalles de la película: {error}</h1>;
+
+    if (!movie) return <h1>No se encontraron detalles de la película.</h1>
 
     const addToCart = (movie) => {  // Función para agregar la película al carrito
         const savedCart = JSON.parse(localStorage.getItem('cart')) || []; // Obtén el carrito del localStorage o crea uno vacío
@@ -36,10 +36,6 @@ const MovieDetail = () => {
         localStorage.setItem('cart', JSON.stringify(savedCart));
         alert(`${movie.title} se ha agregado al carrito!`);
     };
-
-    if (!movie) {
-        return <p>Cargando detalles de la película...</p>; // Mensaje mientras se cargan los datos
-    }
 
     return (
         <><div
