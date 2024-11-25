@@ -13,7 +13,7 @@ import PrivacyPolitics from './privacyPolitics';
 import Terminos from './terms';
 import Cambios from './cambios';
 import NewMovie from './newMovie';
-import RemoveMovie from './removeMovie';
+import RemoveMoviePage from './removeMoviePage';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path="/terms" element={<Terminos/>} />
           <Route path="/cambios" element={<Cambios/>} />
           <Route path="/newMovie" element={<NewMovie/>} />
-          <Route path="/removeMovie" element={<RemoveMovie/>} />
+          <Route path="/removeMovie" element={<RemoveMoviePage/>} />
         </Routes>
     </Router>
   )

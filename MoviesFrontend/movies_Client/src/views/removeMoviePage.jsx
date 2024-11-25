@@ -1,8 +1,9 @@
 import Navbar from "../components/Navbar";
 import PrivateRoute from "../components/PrivateRoute";
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+import RemoveMovie from "../components/removeMovie/removeMovie";
 
-const RemoveMovie = () => {
+const RemoveMoviePage = () => {
     return (
         <PrivateRoute requiredRole="ADMIN">
             <Navbar></Navbar>
@@ -14,4 +15,4 @@ const RemoveMovie = () => {
     );
 }
 
-export default RemoveMovie;
+export default RemoveMoviePage;

@@ -55,8 +55,15 @@ const MovieDetail = () => {
                 <div className='boton'>
                     <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
                 </div>
+                <div className="btn-remove">
+                    {localStorage.getItem("userRole") == "ADMIN" ? (
+                        <button>
+                            Eliminar Película
+                        </button>
+                    ) : null}
+                </div>
             </div>
-            </div></>
+        </div></>
     );
 };
 

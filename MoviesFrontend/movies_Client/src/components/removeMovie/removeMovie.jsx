@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./removeMovie.css";
 import { useDispatch } from "react-redux";
-import { deleteMovie } from "../../Redux/movieSlice";
+import { deleteMovies } from "../../Redux/movieSlice";
 
-const removeMovie = () => {
+const RemoveMovie = () => {
     const [id, setId] = useState("");
     const [error, setError] = useState(""); // Estado para el mensaje de error
 
@@ -46,4 +46,4 @@ const removeMovie = () => {
     );
 }
 
-export default removeMovie;
+export default RemoveMovie;
