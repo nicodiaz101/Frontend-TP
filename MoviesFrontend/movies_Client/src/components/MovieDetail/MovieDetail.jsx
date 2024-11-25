@@ -67,14 +67,10 @@ const MovieDetail = () => {
             </div>
             <div className='contenedor-chico'>
                 <p>{movie.description}</p>
-                <div className='boton'>
-                    <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
-                </div>
-                <div className="boton-remove">
-                    {localStorage.getItem("userRole") == "ADMIN" ? (
-                        <button type="submit" onClick={handleRemove}>Eliminar Película</button>
-                    ) : null}
-                </div>
+                <button className="carrito-btn" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
+                {localStorage.getItem("userRole") == "ADMIN" ? (
+                    <button className="eliminar-btn" onClick={handleRemove}>Eliminar Película</button>
+                ) : null}
             </div>
         </div></>
     );
