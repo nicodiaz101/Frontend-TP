@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Carrito.css';
+import { useDispatch } from 'react-redux';
+import { createOrders } from '../../Redux/orderSlice';
 
 const Carrito = () => {
     const [cart, setCart] = useState([]);
     const [userEmail, setUserEmail] = useState('');
     const [orderConfirmation, setOrderConfirmation] = useState(null);
+    const [error, setError] = useState(""); // Estado para el mensaje de error
+
+    const dispatch = useDispatch();
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -43,7 +48,9 @@ const Carrito = () => {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
     };
 
-    const handleCheckout = () => {
+    const handleCheckout = async (e) => { // Función para procesar la compra
+        e.preventDefault();
+
         const token = localStorage.getItem('token');
         if (!token) {
             window.location.href = "/login"; // Redirige a login si no está loggeado
@@ -56,33 +63,29 @@ const Carrito = () => {
                 }
             });
 
-            // Preparar la solicitud de compra
-            const orderRequest = {
-                user: { email: userEmail },
-                movies: movieTitles,
-            };
+            try{
+                // Preparar la solicitud de compra
+                const orderRequest = {
+                    user: { email: userEmail },
+                    movies: movieTitles,
+                };
 
-            // Enviar solicitud de compra al backend
-            fetch('http://localhost:4002/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` // Si necesitas token para la autenticación
-                },
-                body: JSON.stringify(orderRequest),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Orden creada:', data);
-                    setOrderConfirmation(data); // Mostrar la orden creada
+                // Enviar solicitud de compra al backend
+                const response = await dispatch(createOrders(orderRequest)).unwrap();
+                if (response) {
+                    console.log('Orden creada:', response);
+                    setOrderConfirmation(response); // Mostrar la orden creada
                     // Limpiar carrito tras la compra
                     setCart([]);
                     localStorage.removeItem('cart');
-                })
-                .catch(error => alert('Error al procesar la compra:', error));
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                console.error("Error response:", error.response?.data);
+                setError("Error al procesar la compra. Película sin stock suficiente.");
+            }
         }
     };
-
 
     return (
         <>
@@ -107,6 +110,10 @@ const Carrito = () => {
                                 </div>
                             </div>
                         ))}
+                        <div className="precio-total">
+                            <p>Total: ${cart.reduce((acc, item) => acc + (item.price - (item.discountPercentage * item.price / 100))* item.quantity, 0)}</p>
+                        </div>
+                        {error && <p className= "error">{error}</p>} {/* Muestra el mensaje de error */}
                         <button className="checkout-btn" onClick={handleCheckout}>Realizar compra</button>
                     </>
                 )}
