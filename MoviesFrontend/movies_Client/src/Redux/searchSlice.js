@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+
 // Acción asíncrona para buscar películas
 export const fetchMovies = createAsyncThunk(
   "search/fetchMovies",
   async (query) => {
-    const response = await fetch(`http://localhost:4002/movies/title?query=${query}`);
+    const response = await fetch(`http://localhost:4002/movies/title?title=${query}`);
     if (!response.ok) {
       throw new Error("Error al solicitar la pelicula");
     }
