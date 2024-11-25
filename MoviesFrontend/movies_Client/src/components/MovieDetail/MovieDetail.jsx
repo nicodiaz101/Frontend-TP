@@ -52,6 +52,8 @@ const MovieDetail = () => {
         }
     };
 
+    const discountedPrice = movie.price - (movie.price * (movie.discountPercentage / 100));
+
     return (
         <><div
             className="movie-background" style={{backgroundImage:`url(${movie.poster})`, }}>
@@ -61,8 +63,20 @@ const MovieDetail = () => {
                 <img src={movie.poster} />
                 <div className='contenedor-medio-textos'>
                     <h1>{movie.title}</h1>
+                    <p>Director: {movie.director?.name}</p>
                     <p>Género: {movie.genre?.name}</p>
-                    <b>Precio: ${movie.price}</b>
+                    <p>Estreno: {movie.releaseDate}</p>
+                    <p>IMDb: {movie.imdbScore}</p>
+                    {movie.discountPercentage > 0 ? (
+                        <b>
+                            <s className="precio-tachado"> Precio:  ${movie.price}</s> 
+                        </b>
+                    ) : (<b>Precio: ${movie.price}</b>)}
+                    {movie.discountPercentage > 0 ? (
+                        <b>
+                            ${discountedPrice.toFixed(2)} <b className="precio-descontado">{movie.discountPercentage}% OFF</b> 
+                        </b>
+                    ) : null}
                 </div>    
             </div>
             <div className='contenedor-chico'>
