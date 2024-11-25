@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ModifyMovie.css"; // Reutilizando el CSS de CreateMovie
-import { useDispatch } from "react-redux";
-import { updateMovies } from "../../Redux/movieSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { updateMovies, fetchMovieDetails } from "../../Redux/movieSlice";
 
 const ModifyMovie = () => {
     const [id, setId] = useState(""); // Campo para ingresar el ID de la película
@@ -21,36 +21,79 @@ const ModifyMovie = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleModifyMovie = async (e) => {
-        e.preventDefault();
-        if (!id) {
-            setError("Debes ingresar el ID de la película.");
-            return;
-        }
+    // Obtener detalles de la película desde Redux
+    const movie = useSelector((state) => state.movies.details);
 
-        try {
-            const updatedMovie = {
-                id, // El ID es obligatorio
-                ...(title && { title }), // Solo agrega si el campo está lleno
-                ...(releaseDate && { releaseDate }),
-                ...(imdbScore && { imdbScore: Number(imdbScore) }),
-                ...(price && { price: Number(price) }),
-                ...(discountPercentage && { discountPercentage: Number(discountPercentage) }),
-                ...(stock && { stock: Number(stock) }),
-                ...(poster && { poster }),
-                ...(description && { description }),
-                ...(genre && { genre }),
-                ...(director && { director }),
-            };
+    useEffect(() => {
+      if (id) {
+          dispatch(fetchMovieDetails(id))
+              .unwrap()
+              .then((movie) => {
+                  setTitle(movie.title || "");
+                  setReleaseDate(movie.releaseDate || "");
+                  setImdbScore(movie.imdbScore || "");
+                  setPrice(movie.price || "");
+                  setDiscountPercentage(movie.discountPercentage || "");
+                  setStock(movie.stock || "");
+                  setPoster(movie.poster || "");
+                  setDescription(movie.description || "");
+                  setGenre(() => {
+                      if (Array.isArray(movie.genre)) {
+                          return movie.genre.join(", ");
+                      }
+                      if (typeof movie.genre === "string") {
+                          return movie.genre;
+                      }
+                      return "";
+                  });
+                  setDirector(movie.director?.name || ""); // Manejar objetos
+              })
+              .catch((error) => {
+                  console.error("Error al obtener los detalles de la película:", error);
+                  setError("No se pudo cargar la película con el ID proporcionado.");
+              });
+      }
+  }, [id, dispatch]);
+  
+    
+  
 
-            await dispatch(updateMovies(updatedMovie)).unwrap();
-            alert("Película modificada con éxito!");
-            navigate("/"); // Redirigir después de la modificación
-        } catch (error) {
-            console.error("Error:", error);
-            setError("Error al modificar la película :( ");
-        }
-    };
+  const handleModifyMovie = async (e) => {
+    e.preventDefault();
+
+    if (!id || isNaN(Number(id))) {
+        setError("Por favor, ingresa un ID válido.");
+        return;
+    }
+
+    try {
+        const updatedMovie = {
+          ...(title && { title }), // String
+          ...(releaseDate && { releaseDate }), // Fecha en formato 'yyyy-MM-dd'
+          ...(imdbScore && { imdbScore: Number(imdbScore) }), // double
+          ...(price && { price: Number(price) }), // double
+          ...(discountPercentage && { discountPercentage: Number(discountPercentage) }), // double
+          ...(stock && { stock: Number(stock) }), // int
+          ...(poster && { poster }), // String
+          ...(description && { description }), // String
+          ...(genre && { genre }), // String
+          ...(director && { director }), // String
+      };
+    
+    
+
+        console.log("Datos enviados al servidor:", updatedMovie);
+
+        await dispatch(updateMovies(updatedMovie)).unwrap();
+        alert("Película modificada con éxito!");
+        navigate("/");
+    } catch (error) {
+        console.error("Error:", error);
+        console.error("Mensaje del servidor:", error.response?.data);
+        setError(error.response?.data?.message || "Error al modificar la película.");
+    }
+};
+
 
     return (
         <div className="mm-container">
@@ -132,3 +175,4 @@ const ModifyMovie = () => {
 };
 
 export default ModifyMovie;
+

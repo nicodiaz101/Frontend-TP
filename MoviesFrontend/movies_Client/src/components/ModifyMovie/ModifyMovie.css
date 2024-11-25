@@ -1,5 +1,5 @@
 .mm-container{
-    background-color: #4acbf3;
+    background-color: #02cff8;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -10,7 +10,7 @@
 }
 .title{
     font-size: 2rem;
-    color: #053348;
+    color: #000000;
     font-weight: bold;
     margin-bottom: 1em;
 }
@@ -34,7 +34,7 @@ input{
 button{
     padding: 1rem;
     border: none;
-    background-color: #053348;
+    background-color: #00046b;
     font-weight: 400;
     color: white;
     cursor: pointer;
@@ -42,8 +42,8 @@ button{
     border-radius: 0.8rem;
 
     &:hover{
-        background-color: #074b6a;
-        color: #a1b3bc;
+        background-color: #0a0134f9;
+        color: #ffffff;
         animation: 5s ease-in linear infinite;
     }
 }
