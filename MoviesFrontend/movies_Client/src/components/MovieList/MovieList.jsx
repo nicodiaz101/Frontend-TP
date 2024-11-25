@@ -13,7 +13,7 @@ const MovieList = () => {
 
     if (loading) return <h1>Cargando películas...</h1>;
     if (error) return <h1>Error al cargar las películas: {error}</h1>;
-
+    
     return (
         <div className="movie-list">
             {movies && movies.content && movies.content.map((movie) => (
@@ -24,6 +24,7 @@ const MovieList = () => {
                 genre={movie.genre.name}
                 price={movie.price}
                 poster={movie.poster}
+                discountPercentage={movie.discountPercentage}
                 />
             ))}
         </div>

@@ -1,47 +1,48 @@
-
 .movie-list {
-    width: 100%;
-    max-width: 1200px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: auto;
-    display: flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
-    padding: 5rem;
+  width: 100%;
+  max-width: 1200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 5rem;
 }
-.contenedor-flex{
+
+.contenedor-flex {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  padding-top: 3em;
+  padding-top: 3.5em;
 }
+
 .movie-card {
-    width: 12em;
-    height: 18em;
-    border-radius: 8px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    margin: 20px;
-    text-align: center;
-    transition: all 0.25s;
-    background-color: rgba(0, 0, 0, 0.781);
-  }
+  width: 12em;
+  height: 18em;
+  border-radius: 8px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  background-color: rgba(0, 0, 0, 0.781);
+}
 
 .movie-card:hover {
-    transform: scale(1.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 4px rgb(0, 0, 0);
-    overflow: hidden;
-    margin: 20px;
-    text-align: center;
-    transition: all 0.65s;
+  transform: scale(1.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 4px rgb(0, 0, 0);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.65s;
 }
 
 .movie-poster {
-    max-height: 100%;
-    max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .movie-info h2 {
@@ -51,59 +52,72 @@
   margin-bottom: 0.08em;
 }
 
-.movie-info p {
-  text-align: left;
-  color: #000000a4;
-  font-size: 1.02em;
-  margin-bottom: 0.9em;
-  margin-top: 0;
-}
-.movie-info b{
+.movie-info{
+
+  .genero{
+    text-align: left;
+    color: #000000a4;
+    font-size: 1.02em;
+    margin-bottom: 0.9em;
+    margin-top: 0;
+  }
+
+  b {
     font-size: 1.2em;
-    color: #06751e;
+  }
+
+  .precio-tachado{
+    color:#3e3e3e;
+    font-size: 0.82em;
+  }
+
+  .precio-descontado{
+    color: rgb(1, 152, 1);
+    font-size: 0.85em;
+  }
 }
 
-.flex-contenedor-div{
-    width: 100%;
-    max-width: 1200px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 250px;
-    height: 350px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
-  }
-  .flex-contenedor-div .card{
-    width: 200px;
-    height: 300px;
-    border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    margin: 20px;
-    text-align: center;
-    transition: all 0.25s;
-    background-color: rgba(255, 255, 255, 0.781);
-  }
-  .flex-contenedor-div .card:hover{
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgb(0, 0, 0);
-  }
-  .card-contenedor {
-    text-align: center;
-    position: relative;
-  }
-  .card img{
-    max-height: 100%;
-    max-width: 100%;
-    }
-  .card-contenedor h3{
-    color: #ffffff;
-    align-items: center;
-  }
-  .precio {
-    font-size: 18px;
-    color: #97ffae;
-    margin-top: 10px; /* Espaciado entre "Comprar" y el precio */
-  }
+.flex-contenedor-div {
+  width: 100%;
+  max-width: 1200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.flex-contenedor-div .card {
+  width: 200px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  text-align: center;
+  transition: all 0.25s;
+  background-color: rgba(255, 255, 255, 0.781);
+}
+
+.flex-contenedor-div .card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgb(0, 0, 0);
+}
+
+.card-contenedor {
+  text-align: center;
+  position: relative;
+}
+
+.card img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.card-contenedor h3 {
+  color: #ffffff;
+  align-items: center;
+}
