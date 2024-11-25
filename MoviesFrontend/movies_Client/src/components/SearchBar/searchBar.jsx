@@ -28,8 +28,14 @@ const SearchBar = () => {
             {isLoading && <p>Cargando...</p>}
             {error && <p className="error">{error}</p>}
             <div className="movie-results">
-                {movies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                {movies && movies.content && movies.map((movie) => (
+                    <MovieCard 
+                    key={movie.movieId}
+                    movieId={movie.movieId} // Pasamos el movieId al MovieCard
+                    title={movie.title}
+                    genre={movie.genre.name}
+                    price={movie.price}
+                    poster={movie.poster} />
                 ))}
             </div>
         </div>
