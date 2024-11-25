@@ -65,15 +65,15 @@ export default function Navbar() {
                             </button>
                         </Link>
                     )}
-                <div className="btn-admin">
-                    {loggedIn && localStorage.getItem("userRole") == "ADMIN" ? (
-                    <Link to="/adminPage">
-                        <button>
-                            Pantalla de Administrador
-                        </button>
-                    </Link>
-                    ) : null}
-                </div>
+                    <div className="btn-admin">
+                        {loggedIn && localStorage.getItem("userRole") == "ADMIN" ? (
+                        <Link to="/adminPage">
+                            <button>
+                                Pantalla de Administrador
+                            </button>
+                        </Link>
+                        ) : null}
+                    </div>
                 </div>
                 <div className="icon-menu">
                     {

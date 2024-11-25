@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
 const URL = "http://localhost:4002/movies"; // URL para obtener todas las peliculas
+const URL_AVAILABLE = "http://localhost:4002/movies/available"; // URL para obtener las películas disponibles
 const URL_DETAIL = 'http://localhost:4002/movies/'; // URL para obtener los detalles de una película
 const URL_DELETE = 'http://localhost:4002/movies/'; // URL para eliminar una película
 const URL_UPDATE = 'http://localhost:4002/movies/'; // URL para actualizar una película
@@ -29,7 +29,7 @@ export const fetchMovieDetails = createAsyncThunk("movies/fetchmoviedetails", as
   return data;
 });
 
-export const deleteMovie = createAsyncThunk("movies/deletemovie", async (movieId) => {
+export const deleteMovies = createAsyncThunk("movies/deletemovies", async (movieId) => {
   const token = localStorage.getItem("token");
   const { data } = await axios.delete(`${URL_DELETE}${movieId}`, {
     headers: {
@@ -40,7 +40,7 @@ export const deleteMovie = createAsyncThunk("movies/deletemovie", async (movieId
   return data;
 });
 
-export const updateMovie = createAsyncThunk("movies/updatemovie", async (movie) => {
+export const updateMovies = createAsyncThunk("movies/updatemovies", async (movie) => {
   const token = localStorage.getItem("token");
   const { data } = await axios.put(`${URL_UPDATE}${movie.id}`, movie, {
     headers: {
@@ -85,16 +85,16 @@ const movieSlice = createSlice({
       .addCase(fetchMovieDetails.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
       })
-      .addCase(deleteMovie.fulfilled, (state, action) => {
+      .addCase(deleteMovies.fulfilled, (state, action) => {
         state.items.content = state.items.content.filter((movie) => movie.id !== action.payload.id);
       })
-      .addCase(deleteMovie.rejected, (state, action) => {
+      .addCase(deleteMovies.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
       })
-      .addCase(deleteMovie.pending, (state) => {
+      .addCase(deleteMovies.pending, (state) => {
         (state.loading = true), (state.error = null);
       })
-      .addCase(updateMovie.fulfilled, (state, action) => {
+      .addCase(updateMovies.fulfilled, (state, action) => {
         state.items.content = state.items.content.map((movie) => {
           if (movie.id === action.payload.id) {
             return action.payload;
@@ -102,10 +102,10 @@ const movieSlice = createSlice({
           return movie;
         });
       })
-      .addCase(updateMovie.rejected, (state, action) => {
+      .addCase(updateMovies.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
       })
-      .addCase(updateMovie.pending, (state) => {
+      .addCase(updateMovies.pending, (state) => {
         (state.loading = true), (state.error = null);
       });
   },

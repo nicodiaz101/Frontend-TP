@@ -106,7 +106,7 @@ const Carrito = () => {
                                         <span>{item.quantity}</span>
                                         <button onClick={() => updateQuantity(item.movieId, 1)}>+</button>
                                     </div>
-                                    <button onClick={() => removeFromCart(item.movieId)} className="remove-btn">Quitar</button>
+                                    <button onClick={() => removeFromCart(item.movieId)} className="eliminar-btn">Quitar</button>
                                 </div>
                             </div>
                         ))}

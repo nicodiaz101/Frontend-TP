@@ -2,11 +2,14 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // Para capturar el movieId de la URL
 import "./detail.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovieDetails } from "../../Redux/movieSlice";
+import { fetchMovieDetails, deleteMovies } from "../../Redux/movieSlice";
+import { useNavigate } from "react-router-dom";
 
 const MovieDetail = () => {
     const { movieId } = useParams(); // Captura el parámetro dinámico movieId desde la URL
+
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const {items: movie, loading, error} = useSelector((state) => state.movies);
 
@@ -37,6 +40,20 @@ const MovieDetail = () => {
         alert(`${movie.title} se ha agregado al carrito!`);
     };
 
+    const handleRemove = async (e) => { // Función para eliminar una película
+        e.preventDefault();
+        try {
+            dispatch(deleteMovies(movieId)).unwrap();
+            alert("Película eliminada con éxito!");
+            navigate("/");
+        } catch (error) {
+            console.error("Error:", error);
+            console.error("Error response:", error.response?.data);
+        }
+    };
+
+    const discountedPrice = movie.price - (movie.price * (movie.discountPercentage / 100));
+
     return (
         <><div
             className="movie-background" style={{backgroundImage:`url(${movie.poster})`, }}>
@@ -46,17 +63,30 @@ const MovieDetail = () => {
                 <img src={movie.poster} />
                 <div className='contenedor-medio-textos'>
                     <h1>{movie.title}</h1>
+                    <p>Director: {movie.director?.name}</p>
                     <p>Género: {movie.genre?.name}</p>
-                    <b>Precio: ${movie.price}</b>
+                    <p>Estreno: {movie.releaseDate}</p>
+                    <p>IMDb: {movie.imdbScore}</p>
+                    {movie.discountPercentage > 0 ? (
+                        <b>
+                            <s className="precio-tachado"> Precio:  ${movie.price}</s> 
+                        </b>
+                    ) : (<b>Precio: ${movie.price}</b>)}
+                    {movie.discountPercentage > 0 ? (
+                        <b>
+                            ${discountedPrice.toFixed(2)} <b className="precio-descontado">{movie.discountPercentage}% OFF</b> 
+                        </b>
+                    ) : null}
                 </div>    
             </div>
             <div className='contenedor-chico'>
                 <p>{movie.description}</p>
-                <div className='boton'>
-                    <button type="submit" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
-                </div>
+                <button className="carrito-btn" onClick={() => addToCart(movie)}>Agregar al Carrito</button>
+                {localStorage.getItem("userRole") == "ADMIN" ? (
+                    <button className="eliminar-btn" onClick={handleRemove}>Eliminar Película</button>
+                ) : null}
             </div>
-            </div></>
+        </div></>
     );
 };
 

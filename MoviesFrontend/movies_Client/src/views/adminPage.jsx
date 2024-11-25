@@ -17,11 +17,6 @@ const AdminPage = () => {
                             Agregar pelicula al cátalogo
                         </button>
                     </Link>
-                    <Link to="/removeMovie">
-                        <button>
-                            Eliminar pelicula del cátalogo
-                        </button>
-                    </Link>
                 </div>
             </div>
             <Footer></Footer>
