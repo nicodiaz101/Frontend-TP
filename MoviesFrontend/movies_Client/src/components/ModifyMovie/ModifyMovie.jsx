@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ModifyMovie.css"; // Reutilizando el CSS de CreateMovie
-import { useDispatch, useSelector } from "react-redux";
-import { updateMovies, fetchMovieDetails } from "../../Redux/movieSlice";
+import { useDispatch } from "react-redux";
+import { updateMovies } from "../../Redux/movieSlice";
 
 const ModifyMovie = () => {
     const [id, setId] = useState(""); // Campo para ingresar el ID de la película
@@ -21,9 +21,14 @@ const ModifyMovie = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // Obtener detalles de la película desde Redux
-    const movie = useSelector((state) => state.movies.details);
+    const handleModifyMovie = async (e) => {
+        e.preventDefault();
+        if (!id) {
+            setError("Debes ingresar el ID de la película.");
+            return;
+        }
 
+<<<<<<< Updated upstream
     useEffect(() => {
       if (id) {
           dispatch(fetchMovieDetails(id))
@@ -85,7 +90,31 @@ const ModifyMovie = () => {
         setError(error.response?.data?.message || "Error al modificar la película.");
     }
 };
+=======
+        try {
+            const updatedMovie = {
+                id, // El ID es obligatorio
+                ...(title && { title }), // Solo agrega si el campo está lleno
+                ...(releaseDate && { releaseDate }),
+                ...(imdbScore && { imdbScore: Number(imdbScore) }),
+                ...(price && { price: Number(price) }),
+                ...(discountPercentage && { discountPercentage: Number(discountPercentage) }),
+                ...(stock && { stock: Number(stock) }),
+                ...(poster && { poster }),
+                ...(description && { description }),
+                ...(genre && { genre }),
+                ...(director && { director }),
+            };
+>>>>>>> Stashed changes
 
+            await dispatch(updateMovies(updatedMovie)).unwrap();
+            alert("Película modificada con éxito!");
+            navigate("/"); // Redirigir después de la modificación
+        } catch (error) {
+            console.error("Error:", error);
+            setError("Error al modificar la película :( ");
+        }
+    };
 
     return (
         <div className="mm-container">
@@ -100,61 +129,61 @@ const ModifyMovie = () => {
                     />
                     <input
                         type="text"
-                        placeholder="Título (opcional)"
+                        placeholder="Título"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Fecha de lanzamiento (opcional)"
+                        placeholder="Fecha de lanzamiento"
                         value={releaseDate}
                         onChange={(e) => setReleaseDate(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Puntaje IMDB (opcional)"
+                        placeholder="Puntaje IMDB"
                         value={imdbScore}
                         onChange={(e) => setImdbScore(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Precio (opcional)"
+                        placeholder="Precio"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Porcentaje de descuento (opcional)"
+                        placeholder="Porcentaje de descuento"
                         value={discountPercentage}
                         onChange={(e) => setDiscountPercentage(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Stock (opcional)"
+                        placeholder="Stock"
                         value={stock}
                         onChange={(e) => setStock(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Poster (opcional)"
+                        placeholder="Poster"
                         value={poster}
                         onChange={(e) => setPoster(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Descripción (opcional)"
+                        placeholder="Descripción"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Género (opcional)"
+                        placeholder="Género"
                         value={genre}
                         onChange={(e) => setGenre(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Director (opcional)"
+                        placeholder="Director"
                         value={director}
                         onChange={(e) => setDirector(e.target.value)}
                     />
@@ -167,4 +196,3 @@ const ModifyMovie = () => {
 };
 
 export default ModifyMovie;
-
