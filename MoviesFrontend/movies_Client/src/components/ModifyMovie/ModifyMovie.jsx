@@ -65,61 +65,61 @@ const ModifyMovie = () => {
                     />
                     <input
                         type="text"
-                        placeholder="Título (opcional)"
+                        placeholder="Título"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Fecha de lanzamiento (opcional)"
+                        placeholder="Fecha de lanzamiento"
                         value={releaseDate}
                         onChange={(e) => setReleaseDate(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Puntaje IMDB (opcional)"
+                        placeholder="Puntaje IMDB"
                         value={imdbScore}
                         onChange={(e) => setImdbScore(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Precio (opcional)"
+                        placeholder="Precio"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Porcentaje de descuento (opcional)"
+                        placeholder="Porcentaje de descuento"
                         value={discountPercentage}
                         onChange={(e) => setDiscountPercentage(e.target.value)}
                     />
                     <input
                         type="number"
-                        placeholder="Stock (opcional)"
+                        placeholder="Stock"
                         value={stock}
                         onChange={(e) => setStock(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Poster (opcional)"
+                        placeholder="Poster"
                         value={poster}
                         onChange={(e) => setPoster(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Descripción (opcional)"
+                        placeholder="Descripción"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Género (opcional)"
+                        placeholder="Género"
                         value={genre}
                         onChange={(e) => setGenre(e.target.value)}
                     />
                     <input
                         type="text"
-                        placeholder="Director (opcional)"
+                        placeholder="Director"
                         value={director}
                         onChange={(e) => setDirector(e.target.value)}
                     />
