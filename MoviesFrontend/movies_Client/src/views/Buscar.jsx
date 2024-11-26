@@ -8,8 +8,10 @@ const Buscar = () => {
     return(
         <div>
             <Navbar></Navbar>
-            <h1 className="h1Search">Busqueda de peliculas</h1>
-            <SearchBar></SearchBar>
+            <div className="search-container">
+                <h1 className="h1Search">Busqueda de peliculas</h1>
+                <SearchBar></SearchBar>
+            </div>
             <Footer></Footer>
         </div>
     )
