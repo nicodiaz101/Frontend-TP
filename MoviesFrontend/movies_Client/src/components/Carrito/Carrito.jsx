@@ -100,7 +100,7 @@ const Carrito = () => {
                                 <img src={item.poster} alt={item.title} className="cart-item-poster" />
                                 <div className="cart-item-info">
                                     <h2>{item.title}</h2>
-                                    <p>Precio: ${item.price}</p>
+                                    <p>Precio: ${(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2)}</p>
                                     <div className="quantity-controls">
                                         <button onClick={() => updateQuantity(item.movieId, -1)}>-</button>
                                         <span>{item.quantity}</span>
@@ -111,7 +111,7 @@ const Carrito = () => {
                             </div>
                         ))}
                         <div className="precio-total">
-                            <p>Total: ${cart.reduce((acc, item) => acc + (item.price - (item.discountPercentage * item.price / 100))* item.quantity, 0)}</p>
+                            <p>Total: ${cart.reduce((acc, item) => acc + (item.price - (item.discountPercentage * item.price / 100))* item.quantity, 0).toFixed(2)}</p>
                         </div>
                         {error && <p className= "error">{error}</p>} {/* Muestra el mensaje de error */}
                         <button className="checkout-btn" onClick={handleCheckout}>Realizar compra</button>
@@ -124,7 +124,7 @@ const Carrito = () => {
                         <p>Orden ID: {orderConfirmation.orderId}</p>
                         <p>Fecha: {formatDate(orderConfirmation.orderDate)}</p>
                         <div className="precio">
-                            <p>Total: ${orderConfirmation.amount}</p>
+                            <p>Total: ${orderConfirmation.amount.toFixed(2)}</p>
                         </div>
                     </div>
                 )}

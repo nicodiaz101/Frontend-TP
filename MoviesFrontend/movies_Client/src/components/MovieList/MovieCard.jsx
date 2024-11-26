@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({movieId, title, genre, price, poster, discountPercentage, stock}) => {
     const discountedPrice = price - (price * (discountPercentage / 100));
+    
     return (
         <>
             <div className="contenedor-flex">
