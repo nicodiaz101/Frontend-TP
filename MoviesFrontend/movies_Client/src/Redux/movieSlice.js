@@ -8,6 +8,11 @@ const URL_DELETE = 'http://localhost:4002/movies/'; // URL para eliminar una pel
 const URL_UPDATE = 'http://localhost:4002/movies/'; // URL para actualizar una película
 
 export const fetchMovies = createAsyncThunk("movies/fetchmovies", async () => {
+  const { data } = await axios(URL);
+  return data;
+});
+
+export const fetchMoviesAvailable = createAsyncThunk("movies/fetchmoviesavailable", async () => {
   const { data } = await axios(URL_AVAILABLE);
   return data;
 });
@@ -68,6 +73,15 @@ const movieSlice = createSlice({
         (state.loading = false), (state.items = action.payload);
       })
       .addCase(fetchMovies.rejected, (state, action) => {
+        (state.loading = false), (state.error = action.error.message);
+      })
+      .addCase(fetchMoviesAvailable.pending, (state) => {
+        (state.loading = true), (state.error = null);
+      })
+      .addCase(fetchMoviesAvailable.fulfilled, (state, action) => {
+        (state.loading = false), (state.items = action.payload);
+      })
+      .addCase(fetchMoviesAvailable.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);
       })
       .addCase(createMovies.fulfilled, (state, action) => {

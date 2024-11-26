@@ -1,7 +1,7 @@
 import './movie.css';
 import { Link } from "react-router-dom";
 
-const MovieCard = ({movieId, title, genre, price, poster, discountPercentage}) => {
+const MovieCard = ({movieId, title, genre, price, poster, discountPercentage, stock}) => {
     const discountedPrice = price - (price * (discountPercentage / 100));
     return (
         <>
@@ -14,7 +14,9 @@ const MovieCard = ({movieId, title, genre, price, poster, discountPercentage}) =
                 <div className="movie-info">
                     <h2>{title}</h2>
                     <p className='genero'>{genre}</p>
-                    {discountPercentage > 0 ? (
+                    {stock <= 0 ? (
+                        <b className="sin-stock">SIN STOCK</b>
+                    ) : discountPercentage > 0 ? (
                         <b>
                             ${discountedPrice.toFixed(2)} <b className="precio-descontado">{discountPercentage}% OFF</b> 
                         </b>

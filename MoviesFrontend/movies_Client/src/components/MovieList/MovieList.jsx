@@ -1,14 +1,20 @@
 import { useEffect} from "react";
 import MovieCard from "./MovieCard";
 import {useDispatch, useSelector} from 'react-redux';
-import { fetchMovies } from "../../Redux/movieSlice";
+import { fetchMovies, fetchMoviesAvailable } from "../../Redux/movieSlice";
 
 const MovieList = () => {
     const dispatch = useDispatch();
     const {items: movies, loading, error} = useSelector((state) => state.movies)
 
     useEffect(() => {
-        dispatch(fetchMovies());
+        const role = localStorage.getItem('userRole');
+        if (role === "ADMIN") {
+            dispatch(fetchMovies());
+        } else
+        {
+            dispatch(fetchMoviesAvailable());
+        }        
     }, [dispatch]);
 
     if (loading) return <h1>Cargando películas...</h1>;
@@ -25,6 +31,7 @@ const MovieList = () => {
                 price={movie.price}
                 poster={movie.poster}
                 discountPercentage={movie.discountPercentage}
+                stock={movie.stock}
                 />
             ))}
         </div>
