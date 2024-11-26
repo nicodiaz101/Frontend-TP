@@ -14,7 +14,7 @@ const searchSlice = createSlice({
   name: "search",
   initialState: {
     query: "",
-    movies: [],
+    movie: null,
     loading: false,
     error: null,
   },
@@ -29,7 +29,7 @@ const searchSlice = createSlice({
         (state.loading = true), (state.error = null);
       })
       .addCase(searchMovies.fulfilled, (state, action) => {
-        (state.loading = false), (state.movies = action.payload);
+        (state.loading = false), (state.movie = action.payload);
       })
       .addCase(searchMovies.rejected, (state, action) => {
         (state.loading = false), (state.error = action.error.message);

@@ -6,8 +6,7 @@ import "./searchBar.css";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
-    const {query} = useSelector((state) => state.search)
-    const { movies, loading, error } = useSelector((state) => state.search)
+    const { query, movie, loading, error } = useSelector((state) => state.search)
 
     const handleInputChange = async (e) => {
         const value = e.target.value;
@@ -34,17 +33,18 @@ const SearchBar = () => {
             {loading && <p>Cargando...</p>}
             {error && <p className="error">No se encontraron películas.</p>}
             <div className="movie-results">
-                {movies && movies.content && movies.content.map((movie) => {
-                    console.log('Renderizando película:', movie);
-                    <MovieCard 
+                {movie && (
+                    <MovieCard
                         key={movie.movieId}
-                        movieId={movie.movieId} // Pasamos el movieId al MovieCard
+                        movieId={movie.movieId}
                         title={movie.title}
                         genre={movie.genre.name}
                         price={movie.price}
                         poster={movie.poster}
+                        discountPercentage={movie.discountPercentage}
+                        stock={movie.stock}
                     />
-                })}
+                )}
             </div>
         </div>
     );

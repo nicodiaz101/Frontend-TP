@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ModifyMovie.css"; // Reutilizando el CSS de CreateMovie
+import "./ModifyMovie.css";
 import { useDispatch } from "react-redux";
 import { updateMovies } from "../../Redux/movieSlice";
 
@@ -53,10 +53,10 @@ const ModifyMovie = () => {
     };
 
     return (
-        <div className="cm-container">
+        <div className="mm-container">
             <span className="title">Modificar Película</span>
             <form onSubmit={handleModifyMovie}>
-                <div className="cm-form">
+                <div className="mm-form">
                     <input
                         type="text"
                         placeholder="ID de la película"

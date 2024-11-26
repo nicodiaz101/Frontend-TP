@@ -1,5 +1,5 @@
 .mm-container{
-    background-color: #02cff8;
+    background-color: #000000cc;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -7,53 +7,63 @@
     height: auto;
     text-align: center;
     width: 500px;
-}
-.title{
-    font-size: 2rem;
-    color: #000000;
-    font-weight: bold;
-    margin-bottom: 1em;
-}
-.mm-form{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-input{
-    border: none;
-    outline: none;
-    padding: 0.8rem;
-    border-bottom: 1px solid #465d68;
-    background-color: #fafafa;
-    border-radius: 0.9em;
 
-    &::placeholder{
-        color: #465d68;
-    }
-}
-button{
-    padding: 1rem;
-    border: none;
-    background-color: #00046b;
-    font-weight: 400;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 0.8rem;
-
-    &:hover{
-        background-color: #0a0134f9;
+    .title{
+        font-size: 2rem;
         color: #ffffff;
-        animation: 5s ease-in linear infinite;
+        font-weight: bold;
+        margin-bottom: 1em;
     }
-}
-p{
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: #ffffff;
-}
-.error {
-    color: red;
-    margin-top: 10px;
-    font-size: 1.05em;
+
+    .mm-form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input{
+            border: none;
+            outline: none;
+            padding: 0.8rem;
+            border-bottom: 1px solid #465d68;
+            background-color: #ffffff;
+            border-radius: 0.9em;
+
+            &::placeholder{
+                color: #465d68;
+            }
+        }
+        button{
+            background-image: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #000672 100%);
+            background-size: 500% 100%; /* Tamaño del fondo para que la animación funcione */
+            background-position: left center; /* Posición inicial */
+            border: 0.17em transparent;
+            border-radius: 1.1em;
+            width: 200px;
+            height: 45px;
+            color: #000000; /* Color inicial del texto */
+            
+            text-decoration: none;
+            font-size: 1.15em;
+            cursor: pointer;
+            transition: background-position 1s ease, color 1s ease; /* Aplica la transición al fondo y al color */
+        }
+        button:hover {
+            background-position: right center;
+            color: #ffffff;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    }
+    p{
+        margin-top: 1rem;
+        font-size: 0.95rem;
+        color: #ffffff;
+    }
+    .error {
+        color: red;
+        margin-top: 10px;
+        font-size: 1.05em;
+    }
 }

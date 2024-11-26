@@ -22,3 +22,9 @@ input {
     justify-content: center;
     gap: 20px;
 }
+
+.error {
+    color: rgb(255, 52, 52);
+    margin-top: 10px;
+    font-size: 1.05em;
+}
