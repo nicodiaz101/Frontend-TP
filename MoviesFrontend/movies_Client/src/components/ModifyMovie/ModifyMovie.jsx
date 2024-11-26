@@ -37,15 +37,7 @@ const ModifyMovie = () => {
                   setStock(movie.stock || "");
                   setPoster(movie.poster || "");
                   setDescription(movie.description || "");
-                  setGenre(() => {
-                      if (Array.isArray(movie.genre)) {
-                          return movie.genre.join(", ");
-                      }
-                      if (typeof movie.genre === "string") {
-                          return movie.genre;
-                      }
-                      return "";
-                  });
+                  setGenre(movie.genre?.name || "")
                   setDirector(movie.director?.name || ""); // Manejar objetos
               })
               .catch((error) => {
