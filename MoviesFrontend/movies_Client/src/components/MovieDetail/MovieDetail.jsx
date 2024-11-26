@@ -62,6 +62,9 @@ const MovieDetail = () => {
             <div className='contenedor-medio'>
                 <img src={movie.poster} />
                 <div className='contenedor-medio-textos'>
+                    {localStorage.getItem("userRole") == "ADMIN" ? (
+                        <p>MovieId: {movie.movieId}</p>
+                    ) : null}
                     <h1>{movie.title}</h1>
                     <p>Director: {movie.director?.name}</p>
                     <p>Género: {movie.genre?.name}</p>
